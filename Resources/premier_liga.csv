@@ -1,17 +1,17 @@
-﻿Club,Country,League,Market Value,PL,W,D,L,G,Pts,Pts_per_match
-Zenit St. Petersburg,Russia,Premier Liga,153800000.0,20,15,3,2,53 : 10,48,2.40
-Spartak Moscow,Russia,Premier Liga,86550000.0,20,12,4,4,45 : 24,40,2.00
-Dynamo Moscow,Russia,Premier Liga,80950000.0,20,10,5,5,36 : 24,35,1.75
-FK Krasnodar,Russia,Premier Liga,70700000.0,20,8,5,7,38 : 35,29,1.45
-CSKA Moscow,Russia,Premier Liga,69650000.0,20,10,5,5,35 : 20,35,1.75
-Lokomotiv Moscow,Russia,Premier Liga,68950000.0,20,6,4,10,27 : 37,22,1.10
-FK Rostov,Russia,Premier Liga,46400000.0,20,12,5,3,36 : 27,41,2.05
-Krylya Sovetov Samara,Russia,Premier Liga,33500000.0,20,5,5,10,20 : 31,20,1.00
-FC Sochi,Russia,Premier Liga,28550000.0,20,8,4,8,29 : 39,28,1.40
-Akhmat Grozny,Russia,Premier Liga,26330000.0,20,10,2,8,31 : 29,32,1.60
-Ural Yekaterinburg,Russia,Premier Liga,19600000.0,20,7,4,9,24 : 31,25,1.25
-FC Pari Nizhniy Novgorod,Russia,Premier Liga,18700000.0,20,5,4,11,23 : 37,19,0.95
-FK Orenburg,Russia,Premier Liga,17700000.0,20,10,1,9,40 : 40,31,1.55
-FK Khimki,Russia,Premier Liga,16550000.0,20,3,4,13,19 : 41,13,0.65
-Torpedo Moscow,Russia,Premier Liga,14900000.0,20,2,4,14,12 : 33,10,0.50
-Fakel Voronezh,Russia,Premier Liga,10700000.0,20,2,11,7,27 : 37,17,0.85
+﻿Club,Country,League,Market Value,PL,W,D,L,Pts,Pts_per_match
+Zenit St. Petersburg,Russia,Premier Liga,153800000.0,20,15,3,2,48,2.40
+Spartak Moscow,Russia,Premier Liga,86550000.0,20,12,4,4,40,2.00
+Dynamo Moscow,Russia,Premier Liga,80950000.0,20,10,5,5,35,1.75
+FK Krasnodar,Russia,Premier Liga,70700000.0,20,8,5,7,29,1.45
+CSKA Moscow,Russia,Premier Liga,69650000.0,20,10,5,5,35,1.75
+Lokomotiv Moscow,Russia,Premier Liga,68950000.0,20,6,4,10,22,1.10
+FK Rostov,Russia,Premier Liga,46400000.0,20,12,5,3,41,2.05
+Krylya Sovetov Samara,Russia,Premier Liga,33500000.0,20,5,5,10,20,1.00
+FC Sochi,Russia,Premier Liga,28550000.0,20,8,4,8,28,1.40
+Akhmat Grozny,Russia,Premier Liga,26330000.0,20,10,2,8,32,1.60
+Ural Yekaterinburg,Russia,Premier Liga,19600000.0,20,7,4,9,25,1.25
+FC Pari Nizhniy Novgorod,Russia,Premier Liga,18700000.0,20,5,4,11,19,0.95
+FK Orenburg,Russia,Premier Liga,17700000.0,20,10,1,9,31,1.55
+FK Khimki,Russia,Premier Liga,16550000.0,20,3,4,13,13,0.65
+Torpedo Moscow,Russia,Premier Liga,14900000.0,20,2,4,14,10,0.50
+Fakel Voronezh,Russia,Premier Liga,10700000.0,20,2,11,7,17,0.85

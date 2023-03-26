@@ -1,19 +1,19 @@
-﻿Club,Country,League,Market Value,PL,W,D,L,G,Pts,Pts_per_match
-Galatasaray,Turkey,Süper Lig,176430000.0,26,20,3,3,55 : 19,63,2.42
-Fenerbahce,Turkey,Süper Lig,172400000.0,26,19,3,4,67 : 26,60,2.31
-Trabzonspor,Turkey,Süper Lig,128400000.0,25,13,5,7,42 : 32,44,1.76
-Besiktas JK,Turkey,Süper Lig,112880000.0,27,16,7,4,51 : 25,55,2.04
-Basaksehir FK,Turkey,Süper Lig,46950000.0,26,14,5,7,40 : 26,47,1.81
-Antalyaspor,Turkey,Süper Lig,40400000.0,26,9,4,13,35 : 40,31,1.19
-Adana Demirspor,Turkey,Süper Lig,39250000.0,26,13,9,4,50 : 27,48,1.85
-Alanyaspor,Turkey,Süper Lig,38580000.0,27,9,7,11,41 : 46,34,1.26
-Kasimpasa,Turkey,Süper Lig,37630000.0,26,8,5,13,34 : 44,29,1.12
-Konyaspor,Turkey,Süper Lig,36350000.0,26,9,10,7,32 : 27,37,1.42
-Fatih Karagümrük,Turkey,Süper Lig,32380000.000000004,26,9,10,7,57 : 47,37,1.42
-MKE Ankaragücü,Turkey,Süper Lig,29950000.0,25,8,4,13,30 : 37,28,1.12
-Kayserispor,Turkey,Süper Lig,26280000.0,26,13,2,11,42 : 36,41,1.58
-Sivasspor,Turkey,Süper Lig,25680000.0,26,8,6,12,34 : 38,30,1.15
-Giresunspor,Turkey,Süper Lig,16100000.000000002,26,7,8,11,29 : 42,29,1.12
-Istanbulspor,Turkey,Süper Lig,15330000.0,26,9,3,14,33 : 48,30,1.15
-Ümraniyespor,Turkey,Süper Lig,12150000.0,26,6,7,13,36 : 43,25,0.96
-Hatayspor,Turkey,Süper Lig,7150000.0,36,6,5,25,19 : 83,23,0.64
+﻿Club,Country,League,Market Value,PL,W,D,L,Pts,Pts_per_match
+Galatasaray,Turkey,Süper Lig,176430000.0,26,20,3,3,63,2.42
+Fenerbahce,Turkey,Süper Lig,172400000.0,26,19,3,4,60,2.31
+Trabzonspor,Turkey,Süper Lig,128400000.0,25,13,5,7,44,1.76
+Besiktas JK,Turkey,Süper Lig,112880000.0,27,16,7,4,55,2.04
+Basaksehir FK,Turkey,Süper Lig,46950000.0,26,14,5,7,47,1.81
+Antalyaspor,Turkey,Süper Lig,40400000.0,26,9,4,13,31,1.19
+Adana Demirspor,Turkey,Süper Lig,39250000.0,26,13,9,4,48,1.85
+Alanyaspor,Turkey,Süper Lig,38580000.0,27,9,7,11,34,1.26
+Kasimpasa,Turkey,Süper Lig,37630000.0,26,8,5,13,29,1.12
+Konyaspor,Turkey,Süper Lig,36350000.0,26,9,10,7,37,1.42
+Fatih Karagümrük,Turkey,Süper Lig,32380000.000000004,26,9,10,7,37,1.42
+MKE Ankaragücü,Turkey,Süper Lig,29950000.0,25,8,4,13,28,1.12
+Kayserispor,Turkey,Süper Lig,26280000.0,26,13,2,11,41,1.58
+Sivasspor,Turkey,Süper Lig,25680000.0,26,8,6,12,30,1.15
+Giresunspor,Turkey,Süper Lig,16100000.000000002,26,7,8,11,29,1.12
+Istanbulspor,Turkey,Süper Lig,15330000.0,26,9,3,14,30,1.15
+Ümraniyespor,Turkey,Süper Lig,12150000.0,26,6,7,13,25,0.96
+Hatayspor,Turkey,Süper Lig,7150000.0,36,6,5,25,23,0.64

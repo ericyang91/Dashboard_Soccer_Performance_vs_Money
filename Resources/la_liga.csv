@@ -1,21 +1,21 @@
-﻿Club,Country,League,Market Value,PL,W,D,L,G,Pts,Pts_per_match
-Real Madrid,Spain,LaLiga,860500000.0,26,17,5,4,51 : 21,56,2.15
-FC Barcelona,Spain,LaLiga,767000000.0,26,22,2,2,49 : 9,68,2.62
-Atlético de Madrid,Spain,LaLiga,457000000.0,26,15,6,5,42 : 19,51,1.96
-Real Sociedad,Spain,LaLiga,375500000.0,26,14,6,6,35 : 24,48,1.85
-Villarreal CF,Spain,LaLiga,276700000.0,26,12,5,9,32 : 24,41,1.58
-Real Betis Balompié,Spain,LaLiga,252500000.0,26,13,6,7,34 : 26,45,1.73
-Athletic Bilbao,Spain,LaLiga,226300000.0,26,10,6,10,36 : 28,36,1.38
-Valencia CF,Spain,LaLiga,225500000.0,26,7,5,14,28 : 31,26,1.00
-Sevilla FC,Spain,LaLiga,209000000.0,26,7,7,12,29 : 42,28,1.08
-Celta de Vigo,Spain,LaLiga,145500000.0,26,9,7,10,32 : 35,34,1.31
-Getafe CF,Spain,LaLiga,136700000.0,26,7,8,11,27 : 34,29,1.12
-CA Osasuna,Spain,LaLiga,127300000.0,26,9,7,10,22 : 27,34,1.31
-Girona FC,Spain,LaLiga,126200000.0,26,8,7,11,40 : 41,31,1.19
-RCD Espanyol Barcelona,Spain,LaLiga,113700000.0,26,6,9,11,32 : 42,27,1.04
-RCD Mallorca,Spain,LaLiga,96100000.0,26,9,5,12,22 : 27,32,1.23
-Rayo Vallecano,Spain,LaLiga,95200000.0,26,9,9,8,31 : 30,36,1.38
-UD Almería,Spain,LaLiga,93600000.0,26,7,5,14,30 : 45,26,1.00
-Real Valladolid CF,Spain,LaLiga,76600000.0,26,8,4,14,20 : 38,28,1.08
-Cádiz CF,Spain,LaLiga,62400000.0,26,6,10,10,21 : 38,28,1.08
-Elche CF,Spain,LaLiga,60700000.0,26,2,7,17,19 : 51,13,0.50
+﻿Club,Country,League,Market Value,PL,W,D,L,Pts,Pts_per_match
+Real Madrid,Spain,LaLiga,860500000.0,26,17,5,4,56,2.15
+FC Barcelona,Spain,LaLiga,767000000.0,26,22,2,2,68,2.62
+Atlético de Madrid,Spain,LaLiga,457000000.0,26,15,6,5,51,1.96
+Real Sociedad,Spain,LaLiga,375500000.0,26,14,6,6,48,1.85
+Villarreal CF,Spain,LaLiga,276700000.0,26,12,5,9,41,1.58
+Real Betis Balompié,Spain,LaLiga,252500000.0,26,13,6,7,45,1.73
+Athletic Bilbao,Spain,LaLiga,226300000.0,26,10,6,10,36,1.38
+Valencia CF,Spain,LaLiga,225500000.0,26,7,5,14,26,1.00
+Sevilla FC,Spain,LaLiga,209000000.0,26,7,7,12,28,1.08
+Celta de Vigo,Spain,LaLiga,145500000.0,26,9,7,10,34,1.31
+Getafe CF,Spain,LaLiga,136700000.0,26,7,8,11,29,1.12
+CA Osasuna,Spain,LaLiga,127300000.0,26,9,7,10,34,1.31
+Girona FC,Spain,LaLiga,126200000.0,26,8,7,11,31,1.19
+RCD Espanyol Barcelona,Spain,LaLiga,113700000.0,26,6,9,11,27,1.04
+RCD Mallorca,Spain,LaLiga,96100000.0,26,9,5,12,32,1.23
+Rayo Vallecano,Spain,LaLiga,95200000.0,26,9,9,8,36,1.38
+UD Almería,Spain,LaLiga,93600000.0,26,7,5,14,26,1.00
+Real Valladolid CF,Spain,LaLiga,76600000.0,26,8,4,14,28,1.08
+Cádiz CF,Spain,LaLiga,62400000.0,26,6,10,10,28,1.08
+Elche CF,Spain,LaLiga,60700000.0,26,2,7,17,13,0.50

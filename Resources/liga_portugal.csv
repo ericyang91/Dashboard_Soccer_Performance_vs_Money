@@ -1,19 +1,19 @@
-﻿Club,Country,League,Market Value,PL,W,D,L,G,Pts,Pts_per_match
-SL Benfica,Portugal,Liga Portugal,313000000.0,25,22,2,1,66 : 14,68,2.72
-FC Porto,Portugal,Liga Portugal,279300000.0,25,18,4,3,55 : 17,58,2.32
-Sporting CP,Portugal,Liga Portugal,233000000.0,24,16,2,6,49 : 23,50,2.08
-SC Braga,Portugal,Liga Portugal,111600000.0,25,18,2,5,54 : 22,56,2.24
-FC Famalicão,Portugal,Liga Portugal,39500000.0,25,10,3,12,25 : 32,33,1.32
-Vitória Guimarães SC,Portugal,Liga Portugal,39500000.0,25,12,4,9,25 : 29,40,1.60
-Gil Vicente FC,Portugal,Liga Portugal,28550000.0,24,8,5,11,26 : 31,29,1.21
-CD Santa Clara,Portugal,Liga Portugal,23700000.0,25,3,6,16,17 : 38,15,0.60
-GD Estoril Praia,Portugal,Liga Portugal,22430000.0,25,6,4,15,21 : 39,22,0.88
-Portimonense SC,Portugal,Liga Portugal,20650000.0,25,8,2,15,18 : 32,26,1.04
-Boavista FC,Portugal,Liga Portugal,20450000.0,25,8,6,11,28 : 40,30,1.20
-CS Marítimo,Portugal,Liga Portugal,16750000.0,25,4,4,17,17 : 47,16,0.64
-Casa Pia AC,Portugal,Liga Portugal,15650000.0,25,11,5,9,22 : 24,38,1.52
-FC Paços de Ferreira,Portugal,Liga Portugal,15380000.0,25,4,4,17,19 : 43,16,0.64
-FC Arouca,Portugal,Liga Portugal,15300000.0,25,10,8,7,29 : 32,38,1.52
-FC Vizela,Portugal,Liga Portugal,14850000.0,25,9,5,11,27 : 27,32,1.28
-Rio Ave FC,Portugal,Liga Portugal,12880000.0,25,9,6,10,25 : 28,33,1.32
-GD Chaves,Portugal,Liga Portugal,11830000.0,25,8,8,9,26 : 31,32,1.28
+﻿Club,Country,League,Market Value,PL,W,D,L,Pts,Pts_per_match
+SL Benfica,Portugal,Liga Portugal,313000000.0,25,22,2,1,68,2.72
+FC Porto,Portugal,Liga Portugal,279300000.0,25,18,4,3,58,2.32
+Sporting CP,Portugal,Liga Portugal,233000000.0,24,16,2,6,50,2.08
+SC Braga,Portugal,Liga Portugal,111600000.0,25,18,2,5,56,2.24
+FC Famalicão,Portugal,Liga Portugal,39500000.0,25,10,3,12,33,1.32
+Vitória Guimarães SC,Portugal,Liga Portugal,39500000.0,25,12,4,9,40,1.60
+Gil Vicente FC,Portugal,Liga Portugal,28550000.0,24,8,5,11,29,1.21
+CD Santa Clara,Portugal,Liga Portugal,23700000.0,25,3,6,16,15,0.60
+GD Estoril Praia,Portugal,Liga Portugal,22430000.0,25,6,4,15,22,0.88
+Portimonense SC,Portugal,Liga Portugal,20650000.0,25,8,2,15,26,1.04
+Boavista FC,Portugal,Liga Portugal,20450000.0,25,8,6,11,30,1.20
+CS Marítimo,Portugal,Liga Portugal,16750000.0,25,4,4,17,16,0.64
+Casa Pia AC,Portugal,Liga Portugal,15650000.0,25,11,5,9,38,1.52
+FC Paços de Ferreira,Portugal,Liga Portugal,15380000.0,25,4,4,17,16,0.64
+FC Arouca,Portugal,Liga Portugal,15300000.0,25,10,8,7,38,1.52
+FC Vizela,Portugal,Liga Portugal,14850000.0,25,9,5,11,32,1.28
+Rio Ave FC,Portugal,Liga Portugal,12880000.0,25,9,6,10,33,1.32
+GD Chaves,Portugal,Liga Portugal,11830000.0,25,8,8,9,32,1.28
