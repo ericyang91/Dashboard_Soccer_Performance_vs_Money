@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+            crossorigin=""
+    />
+    <link
+            href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="inner">
+        <h1>Soccer - Performance and Money</h1>
+    </div>
+</header>
+<div class="container">
+    <div class="side-wrapper">
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <div class="filters">
+                <h4>League</h4>
+                <select class="dd-country" id="selDataset" onchange="optionDataFilter()">
+                    <option selected>All</option>
+                </select>
+                <h4>Club</h4>
+                <select class="dd-country" id="selDataset1" onchange="optionDataFilter()">
+                    <option selected>All</option>
+                </select>
+                <!-- <h3>Date</h3>
+                <h4>From</h4>
+                <select class="dd-country" id="selDataset2" onchange="optionDataFilter()">
+                    <option>From</option>
+                </select>
+                <h4>To</h4>
+                <select class="dd-country" id="selDataset3" onchange="optionDataFilter()">
+                    <option>To</option>
+                </select> -->
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="summary">
+                <h2>Summary</h2>
+                <h4>Total Market Value</h4>
+                <p id="total"></p>
+                <h4>Average Points per Game</h4>
+                <p id="avg"></p>
+                <h4>Total Goals Scored</h4>
+                <p id="worst"></p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="chart-box">
+            <canvas id="myChart" style="width: 100%; max-height: 340px"></canvas>
+        </div>
+        <div class="map-bar-box">
+            <div class="map-box">
+                <div id="map" style="width: 100%; height: 300px"></div>
+            </div>
+            <div class="bar-box">
+                <canvas id="canvas" style="width: 100%; height: 300px"></canvas>
+            </div>
+        </div>
+    </main>
+</div>
+</div>
+<script
+        src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""
+></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="jq.js"></script>
+<script src="main.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+
+
+//     //creating dropdown lists
+//     //Industry filter
+//     var selector = d3.select("#selDataset");
+//     d3.json('/industries').then((data) => {
+//         data.forEach((sample) => {
+//             selector
+//                 .append("option")
+//                 .text(sample)
+//                 .property("value", sample);
+//         });
+//     });
+
+
+//     //Country filter
+//     var selector1 = d3.select("#selDataset1");
+//     d3.json('/countries').then((data) => {
+//         data.forEach((sample) => {
+//             selector1
+//                 .append("option")
+//                 .text(sample)
+//                 .property("value", sample);
+//         });
+//     });
+
+
+//     //Date From filter
+//     var selector2 = d3.select("#selDataset2");
+//     d3.json('/dates').then((data) => {
+//         data.forEach((sample) => {
+//             selector2
+//                 .append("option")
+//                 .text(sample)
+//                 .property("value", sample);
+//         });
+//     });
+
+
+//     //Date To filter
+//     var selector3 = d3.select("#selDataset3");
+//     d3.json('/dates').then((data) => {
+//         data.forEach((sample) => {
+//             selector3
+//                 .append("option")
+//                 .text(sample)
+//                 .property("value", sample);
+//         });
+//     });
+
+//     function setFilterData(){
+//         let sample = d3.select("#selDataset").node().value;
+
+//         filteredData = data.filter(function (item) {
+//             return item.Industry == sample
+//         })
+//     };
+
+
+//     //filtering the data
+//     function optionDataFilter() {
+
+//         let industry = document.getElementById("selDataset").value;
+//         let country = document.getElementById("selDataset1").value;
+//         let from = document.getElementById("selDataset2").value;
+//         let to = document.getElementById("selDataset3").value;
+
+//         if (from === 'From') {
+//             let today = new Date();
+//             let dd = String(today.getDate()).padStart(2, '0');
+//             let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+//             let yyyy = today.getFullYear();
+//             from = yyyy - 4 + '-' + mm + '-' + dd;
+//         }
+//         if (to === 'To') {
+//             let today = new Date();
+//             let dd = String(today.getDate()).padStart(2, '0');
+//             let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+//             let yyyy = today.getFullYear();
+//             to = yyyy + '-' + mm + '-' + dd;
+//         }
+
+//         let filteredData = [];
+//         let geoFiltered = [];
+
+//         d3.json('/dataset').then((data) => {
+//             if (industry !== "All") {
+//                 filteredData = data.filter(function (item) {
+//                     return item.Industry === industry
+//                 })
+//             }
+//             if (country !== "All") {
+//                 filteredData = filteredData.filter(function (item) {
+//                     return item.Country === country
+//                 })
+//             }
+//             if (industry === "All" && country === "All") {
+//                 filteredData = data
+//             }
+//             filteredData = filteredData.filter(function (item) {
+//                 return item.Date >= from && item.Date <= to
+//             })
+//             changeSummary(filteredData);
+//         });
+
+//         d3.json('/layoff/geoJSON').then((data) => {
+//             let geoData = data.features
+//             if (industry !== "All") {
+//                 geoFiltered = geoData.filter(function (item) {
+//                     return item.properties.Industry === industry
+//                 })
+//             }
+//             if (country !== "All") {
+//                 geoFiltered = geoFiltered.filter(function (item) {
+//                     return item.properties.Country === country
+//                 })
+//             }
+//             if (industry === "All" && country === "All") {
+//                 geoFiltered = geoData
+//             }
+//             geoFiltered = geoFiltered.filter(function (item) {
+//                 return item.properties.Date >= from && item.properties.Date <= to
+//             })
+//             createMap(geoFiltered);
+//             createLn(geoFiltered);
+//             groupBy(geoFiltered);
+//         });
+//     };
+
+
+//     //generating a summary based on the filters
+//     function changeSummary(data){
+//         if (data.length === 0) {
+//             d3.json('/dataset').then((data) => {
+//                 changeSummary(data);
+//             });
+//             return;
+//         }
+//         let totalLaidOff = 0;
+//         for (let i = 0; i < data.length; i++) {
+//             totalLaidOff += data[i].Laid_Off_Count;
+//         }
+//         let avg = totalLaidOff/data.length
+//         let worstMonth = 0;
+//         let worstYear = 0;
+//         let worstMonthYearCount = 0;
+//         for (let i = 0; i < data.length; i++) {
+//             let date = data[i].Date;
+//             let year = date.substring(0, 4);
+//             let month = date.substring(5, 7);
+//             let count = data[i].Laid_Off_Count;
+//             if (count > worstMonthYearCount) {
+//                 worstMonthYearCount = count;
+//                 worstMonth = month;
+//                 worstYear = year;
+//             }
+//         }
+//         document.getElementById("avg").innerHTML = avg.toFixed(2);
+//         document.getElementById("total").innerHTML = totalLaidOff;
+//         document.getElementById("worst").innerHTML = worstMonth + "/" + worstYear + " " + worstMonthYearCount + " people";
+//     };
+
+
+//     //creating a leaflet map
+//     var defaultMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         maxZoom: 19,
+//         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//     });
+
+//     let basemaps = {
+//         'Default': defaultMap
+//     };
+
+//     var myMap = L.map("map", {
+//         center: [40.41921, 3.69252],
+//         zoom: 1.1,
+//         layers: [defaultMap]
+//     });
+
+//     defaultMap.addTo(myMap);
+//     let layoffs = new L.LayerGroup();
+
+
+//     //adding the data layer to the map
+//     function createMap(filteredGeo) {
+
+//         layoffs.clearLayers();
+
+//         function dataColor(Laid_Off_Count) {
+//             if (Laid_Off_Count > 800)
+//                 return "red";
+//             else if (Laid_Off_Count > 300)
+//                 return "#fc4903";
+//             else if (Laid_Off_Count > 150)
+//                 return "#fc8403";
+//             else if (Laid_Off_Count > 80)
+//                 return "#fcad03";
+//             else if (Laid_Off_Count > 30)
+//                 return "#cafc03";
+//             else
+//                 return "green";
+//         }
+
+//         function dataStyle(features) {
+//             return {
+//                 opacity: 0.5,
+//                 fillOpacity: 0.5,
+//                 fillColor: dataColor(features.properties.Laid_Off_Count), // use index 2 for the depth
+//                 color: "000000", // black outline
+//                 radius: 10, // grabs the magnitude
+//                 weight: 0.5,
+//                 stroke: true
+//             }
+//         }
+
+//         L.geoJson(filteredGeo, {
+//             pointToLayer: function (features, latLng) {
+//                 return L.circleMarker(latLng);
+//             },
+//             style: dataStyle,
+//             onEachFeature: function (features, layer) {
+//                 layer.bindPopup(`Company: <b>${features.properties.Company}</b><br>
+//                                   City: <b>${features.properties.City}</b><br>
+//                                   Laid off Count: <b>${features.properties.Laid_Off_Count}</b>`);
+//             }
+//         }).addTo(layoffs);
+//         layoffs.addTo(myMap);
+//     };
+
+//     //creating the line chart
+//     function createLn(geoFiltered) {
+//         var labeldata = [];
+//         var chrtdata = [];
+//         for (var i = 0; i < geoFiltered.length; i++) {
+//             //group by Date and set the laid off count
+//             let date = geoFiltered[i].properties.Date;
+//             let count = geoFiltered[i].properties.Laid_Off_Count;
+//             if (labeldata.includes(date)) {
+//                 let index = labeldata.indexOf(date);
+//                 chrtdata[index] += count;
+//             } else {
+//                 labeldata.push(date);
+//                 chrtdata.push(count);
+//             }
+//         }
+
+//         labeldata = labeldata.reverse();
+//         var ctx = document.getElementById("myChart").getContext("2d");
+//         var myChart = new Chart(ctx, {
+//             type: 'line',
+//             data: {
+//                 labels: labeldata,
+//                 datasets: [{
+//                     label: 'Layoffs',
+//                     data: chrtdata,
+//                     backgroundColor: "rgba(170,211,223,0.6)",
+//                     borderColor: "rgba(170,211,223,0.7)",
+//                     pointBorderColor: "rgba(170,211,223)",
+//                     pointBackgroundColor: "rgba(170,211,223)",
+//                     fillColor: "rgba(170,211,223,0.6)",
+//                     fill: true,
+
+//                 }]
+//             }
+//         });
+//     };
+
+//     //using groupby to find the sum of layoffs for each filter
+//     function groupBy(arr) {
+//         var helper = {};
+//         var result = arr.reduce(function (r, o) {
+//             var key = o.properties.Date;
+
+//             if (!helper[key]) {
+//                 helper[key] = Object.assign({}, o);
+//                 r.push(helper[key]);
+//             } else {
+//                 helper[key].properties.Laid_Off_Count += o.properties.Laid_Off_Count;
+//             }
+//             return r;
+//         }, []);
+//     };
+
+//     //creating the bar chart
+//     d3.json('/dataset/barchart').then((data) => {
+//         var barlabeldata = [];
+//         var bardata = [];
+//         for (var i = 0; i < data.length; i++) {
+//             barlabeldata.push(data[i].Industry);
+//             bardata.push(data[i].Count)
+//         }
+
+//         var chr = document.getElementById("canvas").getContext("2d");
+
+//         var barchart = new Chart(chr, {
+//             type: 'bar',
+//             data: {
+//                 labels: barlabeldata,
+//                 datasets: [
+//                     {
+//                         label: 'Layoffs by Industry',
+//                         fillColor: "rgba(170,211,223,0.7)",
+//                         strokeColor: "rgba(170,211,223)",
+//                         backgroundColor: "rgba(170,211,223,0.6)",
+//                         data: bardata,
+//                     }
+//                 ]
+//             }
+//         });
+//     });
+
+//     //plotting the whole dataset when we load the page
+//     function init() {
+//         optionDataFilter('All');
+//     };
+
+//     init();
+// </script>
+// </body>
+// </html>

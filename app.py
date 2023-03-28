@@ -6,14 +6,16 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, render_template
 import psycopg2
-from credentials import username, password
 import pandas as pd
+from credentials import username, password
 
 # Set up SQLAlchemuy engine and base
 engine = create_engine(f"postgresql+psycopg2://{username}:{password}@localhost:5432/soccer_money")
 Base = automap_base()
 Base.prepare(autoload_with=engine)
 data = Base.classes.concat
+
+# JSONify data
 
 
 # Set up Flask
@@ -22,11 +24,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-  return (
-        f"Welcome!<br/>"
-        f"Available Routes:<br/>"
-        f"/jsondata<br/>"
-    )
+    return render_template('dash.html')
 
 @app.route("/jsondata")
 def jsondata():
