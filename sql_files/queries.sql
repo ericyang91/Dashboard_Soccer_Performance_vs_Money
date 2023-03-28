@@ -129,3 +129,15 @@ create table super_lig (
 	L int,
 	Pts int,
 	Pts_Per_Match decimal)
+
+create table concat (
+	Club varchar primary key not null,
+	Country varchar,
+	League varchar,
+	Market_Value decimal,
+	Pl int,
+	W int,
+	D int,
+	L int,
+	Pts int,
+	Pts_Per_Match decimal)

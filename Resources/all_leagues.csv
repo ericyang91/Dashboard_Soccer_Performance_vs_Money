@@ -1,0 +1,199 @@
+﻿Club,Country,League,Market Value,PL,W,D,L,Pts,Pts_per_match
+Manchester City,England,Premier League,1050000000.0,27,19,4,4,61,2.26
+Chelsea FC,England,Premier League,1020000000.0,27,10,8,9,38,1.41
+Arsenal FC,England,Premier League,890000000.0,28,22,3,3,69,2.46
+Liverpool FC,England,Premier League,879000000.0,26,12,6,8,42,1.62
+Manchester United,England,Premier League,795700000.0,26,15,5,6,50,1.92
+Tottenham Hotspur,England,Premier League,680300000.0,28,15,4,9,49,1.75
+Newcastle United,England,Premier League,494300000.0,26,12,11,3,47,1.81
+West Ham United,England,Premier League,451500000.0,26,6,6,14,24,0.92
+Leicester City,England,Premier League,443100000.0,27,7,4,16,25,0.93
+Aston Villa,England,Premier League,437000000.0,27,11,5,11,38,1.41
+Wolverhampton Wanderers,England,Premier League,398700000.0,28,7,6,15,27,0.96
+Southampton FC,England,Premier League,397000000.0,28,6,5,17,23,0.82
+Brighton & Hove Albion,England,Premier League,358500000.0,25,12,6,7,42,1.68
+Everton FC,England,Premier League,352900000.0,28,6,8,14,26,0.93
+Nottingham Forest,England,Premier League,332650000.0,27,6,8,13,26,0.96
+Leeds United,England,Premier League,319000000.0,27,6,8,13,26,0.96
+Brentford FC,England,Premier League,318100000.0,27,10,12,5,42,1.56
+Crystal Palace,England,Premier League,309950000.0,28,6,9,13,27,0.96
+Fulham FC,England,Premier League,253500000.0,27,11,6,10,39,1.44
+AFC Bournemouth,England,Premier League,243700000.0,27,6,6,15,24,0.89
+Real Madrid,Spain,LaLiga,860500000.0,26,17,5,4,56,2.15
+FC Barcelona,Spain,LaLiga,767000000.0,26,22,2,2,68,2.62
+Atlético de Madrid,Spain,LaLiga,457000000.0,26,15,6,5,51,1.96
+Real Sociedad,Spain,LaLiga,375500000.0,26,14,6,6,48,1.85
+Villarreal CF,Spain,LaLiga,276700000.0,26,12,5,9,41,1.58
+Real Betis Balompié,Spain,LaLiga,252500000.0,26,13,6,7,45,1.73
+Athletic Bilbao,Spain,LaLiga,226300000.0,26,10,6,10,36,1.38
+Valencia CF,Spain,LaLiga,225500000.0,26,7,5,14,26,1.00
+Sevilla FC,Spain,LaLiga,209000000.0,26,7,7,12,28,1.08
+Celta de Vigo,Spain,LaLiga,145500000.0,26,9,7,10,34,1.31
+Getafe CF,Spain,LaLiga,136700000.0,26,7,8,11,29,1.12
+CA Osasuna,Spain,LaLiga,127300000.0,26,9,7,10,34,1.31
+Girona FC,Spain,LaLiga,126200000.0,26,8,7,11,31,1.19
+RCD Espanyol Barcelona,Spain,LaLiga,113700000.0,26,6,9,11,27,1.04
+RCD Mallorca,Spain,LaLiga,96100000.0,26,9,5,12,32,1.23
+Rayo Vallecano,Spain,LaLiga,95200000.0,26,9,9,8,36,1.38
+UD Almería,Spain,LaLiga,93600000.0,26,7,5,14,26,1.00
+Real Valladolid CF,Spain,LaLiga,76600000.0,26,8,4,14,28,1.08
+Cádiz CF,Spain,LaLiga,62400000.0,26,6,10,10,28,1.08
+Elche CF,Spain,LaLiga,60700000.0,26,2,7,17,13,0.50
+SSC Napoli,Italy,Serie A,629000000.0,27,23,2,2,71,2.63
+AC Milan,Italy,Serie A,547250000.0,27,14,6,7,48,1.78
+Inter Milan,Italy,Serie A,534450000.00000006,27,16,2,9,50,1.85
+Juventus FC,Italy,Serie A,420700000.0,27,17,5,5,56,2.07
+Atalanta BC,Italy,Serie A,329500000.0,27,13,6,8,45,1.67
+AS Roma,Italy,Serie A,317150000.0,27,14,5,8,47,1.74
+SS Lazio,Italy,Serie A,274900000.0,27,15,7,5,52,1.93
+ACF Fiorentina,Italy,Serie A,236300000.0,27,10,7,10,37,1.37
+US Sassuolo,Italy,Serie A,171400000.0,27,10,6,11,36,1.33
+Torino FC,Italy,Serie A,169530000.0,27,10,7,10,37,1.37
+Udinese Calcio,Italy,Serie A,143050000.0,27,9,11,7,38,1.41
+Bologna FC 1909,Italy,Serie A,135700000.0,27,10,7,10,37,1.37
+AC Monza,Italy,Serie A,114700000.0,27,9,7,11,34,1.26
+FC Empoli,Italy,Serie A,103300000.0,27,6,10,11,28,1.04
+US Salernitana 1919,Italy,Serie A,99680000.0,27,6,9,12,27,1.00
+US Lecce,Italy,Serie A,94130000.0,27,6,9,12,27,1.00
+Spezia Calcio,Italy,Serie A,86300000.0,27,5,9,13,24,0.89
+Hellas Verona,Italy,Serie A,84850000.0,27,4,7,16,19,0.70
+UC Sampdoria,Italy,Serie A,71450000.0,27,3,6,18,15,0.56
+US Cremonese,Italy,Serie A,64900000.00000001,27,1,10,16,13,0.48
+Bayern Munich,Germany,Bundesliga,995700000.0,25,15,7,3,52,2.08
+Borussia Dortmund,Germany,Bundesliga,522700000.00000006,25,17,2,6,53,2.12
+RB Leipzig,Germany,Bundesliga,493300000.0,25,13,6,6,45,1.80
+Bayer 04 Leverkusen,Germany,Bundesliga,416350000.0,25,11,4,10,37,1.48
+Eintracht Frankfurt,Germany,Bundesliga,267950000.0,25,11,7,7,40,1.60
+Borussia Mönchengladbach,Germany,Bundesliga,233000000.0,25,8,7,10,31,1.24
+VfL Wolfsburg,Germany,Bundesliga,188200000.0,25,10,8,7,38,1.52
+TSG 1899 Hoffenheim,Germany,Bundesliga,170950000.0,25,6,4,15,22,0.88
+SC Freiburg,Germany,Bundesliga,161630000.0,25,13,7,5,46,1.84
+VfB Stuttgart,Germany,Bundesliga,123350000.0,25,4,8,13,20,0.80
+1.FC Union Berlin,Germany,Bundesliga,117900000.0,25,14,6,5,48,1.92
+1.FSV Mainz 05,Germany,Bundesliga,113200000.0,25,10,7,8,37,1.48
+FC Augsburg,Germany,Bundesliga,111150000.0,25,8,4,13,28,1.12
+Hertha BSC,Germany,Bundesliga,97700000.0,25,5,6,14,21,0.84
+1. FC Köln,Germany,Bundesliga,96030000.0,25,6,9,10,27,1.08
+SV Werder Bremen,Germany,Bundesliga,73050000.0,25,9,4,12,31,1.24
+FC Schalke 04,Germany,Bundesliga,60450000.0,25,4,9,12,21,0.84
+VfL Bochum,Germany,Bundesliga,46630000.0,25,8,1,16,25,1.00
+Paris Saint-Germain,France,Ligue 1,882550000.0,28,21,3,4,66,2.36
+Stade Rennais FC,France,Ligue 1,320300000.0,28,15,5,8,50,1.79
+Olympique Marseille,France,Ligue 1,259200000.0,28,18,5,5,59,2.11
+OGC Nice,France,Ligue 1,235600000.0,28,11,11,6,44,1.57
+Olympique Lyon,France,Ligue 1,231800000.0,28,11,8,9,41,1.46
+LOSC Lille,France,Ligue 1,220900000.0,28,14,7,7,49,1.75
+RC Lens,France,Ligue 1,184100000.0,28,16,9,3,57,2.04
+FC Nantes,France,Ligue 1,123800000.0,28,6,12,10,30,1.07
+Montpellier HSC,France,Ligue 1,115400000.0,28,11,3,14,36,1.29
+RC Strasbourg Alsace,France,Ligue 1,98550000.0,28,5,11,12,26,0.93
+Stade Reims,France,Ligue 1,95100000.0,28,10,13,5,43,1.54
+FC Lorient,France,Ligue 1,87400000.0,28,12,8,8,44,1.57
+FC Toulouse,France,Ligue 1,78850000.0,28,10,5,13,35,1.25
+ESTAC Troyes,France,Ligue 1,77300000.0,28,4,9,15,21,0.75
+Stade Brestois 29,France,Ligue 1,69000000.0,28,5,9,14,24,0.86
+Angers SCO,France,Ligue 1,53800000.0,28,2,4,22,10,0.36
+AJ Auxerre,France,Ligue 1,49900000.0,28,5,8,15,23,0.82
+Clermont Foot 63,France,Ligue 1,37200000.0,28,9,7,12,34,1.21
+AC Ajaccio,France,Ligue 1,27150000.0,28,6,3,19,21,0.75
+AS Monaco,Monaco,Ligue 1,324200000.0,28,16,6,6,54,1.93
+Red Bull Salzburg,Austria,Bundesliga,222830000.0,22,17,4,1,55,2.50
+SK Sturm Graz,Austria,Bundesliga,42080000.0,22,14,6,2,48,2.18
+LASK,Austria,Bundesliga,28680000.0,22,10,8,4,38,1.73
+Rapid Vienna,Austria,Bundesliga,26780000.0,22,10,3,9,33,1.50
+Austria Vienna,Austria,Bundesliga,24030000.0,22,10,5,7,35,1.59
+Wolfsberger AC,Austria,Bundesliga,14880000.0,22,6,3,13,21,0.95
+SCR Altach,Austria,Bundesliga,11330000.0,22,4,5,13,17,0.77
+SK Austria Klagenfurt,Austria,Bundesliga,11150000.0,22,9,3,10,30,1.36
+SC Austria Lustenau,Austria,Bundesliga,9800000.0,22,7,6,9,27,1.23
+TSV Hartberg,Austria,Bundesliga,9680000.0,22,5,3,14,18,0.82
+SV Ried,Austria,Bundesliga,9580000.0,22,4,6,12,18,0.82
+WSG Tirol,Austria,Bundesliga,9100000.0,22,8,4,10,28,1.27
+SL Benfica,Portugal,Liga Portugal,313000000.0,25,22,2,1,68,2.72
+FC Porto,Portugal,Liga Portugal,279300000.0,25,18,4,3,58,2.32
+Sporting CP,Portugal,Liga Portugal,233000000.0,24,16,2,6,50,2.08
+SC Braga,Portugal,Liga Portugal,111600000.0,25,18,2,5,56,2.24
+FC Famalicão,Portugal,Liga Portugal,39500000.0,25,10,3,12,33,1.32
+Vitória Guimarães SC,Portugal,Liga Portugal,39500000.0,25,12,4,9,40,1.60
+Gil Vicente FC,Portugal,Liga Portugal,28550000.0,24,8,5,11,29,1.21
+CD Santa Clara,Portugal,Liga Portugal,23700000.0,25,3,6,16,15,0.60
+GD Estoril Praia,Portugal,Liga Portugal,22430000.0,25,6,4,15,22,0.88
+Portimonense SC,Portugal,Liga Portugal,20650000.0,25,8,2,15,26,1.04
+Boavista FC,Portugal,Liga Portugal,20450000.0,25,8,6,11,30,1.20
+CS Marítimo,Portugal,Liga Portugal,16750000.0,25,4,4,17,16,0.64
+Casa Pia AC,Portugal,Liga Portugal,15650000.0,25,11,5,9,38,1.52
+FC Paços de Ferreira,Portugal,Liga Portugal,15380000.0,25,4,4,17,16,0.64
+FC Arouca,Portugal,Liga Portugal,15300000.0,25,10,8,7,38,1.52
+FC Vizela,Portugal,Liga Portugal,14850000.0,25,9,5,11,32,1.28
+Rio Ave FC,Portugal,Liga Portugal,12880000.0,25,9,6,10,33,1.32
+GD Chaves,Portugal,Liga Portugal,11830000.0,25,8,8,9,32,1.28
+Galatasaray,Turkey,Süper Lig,176430000.0,26,20,3,3,63,2.42
+Fenerbahce,Turkey,Süper Lig,172400000.0,26,19,3,4,60,2.31
+Trabzonspor,Turkey,Süper Lig,128400000.0,25,13,5,7,44,1.76
+Besiktas JK,Turkey,Süper Lig,112880000.0,27,16,7,4,55,2.04
+Basaksehir FK,Turkey,Süper Lig,46950000.0,26,14,5,7,47,1.81
+Antalyaspor,Turkey,Süper Lig,40400000.0,26,9,4,13,31,1.19
+Adana Demirspor,Turkey,Süper Lig,39250000.0,26,13,9,4,48,1.85
+Alanyaspor,Turkey,Süper Lig,38580000.0,27,9,7,11,34,1.26
+Kasimpasa,Turkey,Süper Lig,37630000.0,26,8,5,13,29,1.12
+Konyaspor,Turkey,Süper Lig,36350000.0,26,9,10,7,37,1.42
+Fatih Karagümrük,Turkey,Süper Lig,32380000.000000004,26,9,10,7,37,1.42
+MKE Ankaragücü,Turkey,Süper Lig,29950000.0,25,8,4,13,28,1.12
+Kayserispor,Turkey,Süper Lig,26280000.0,26,13,2,11,41,1.58
+Sivasspor,Turkey,Süper Lig,25680000.0,26,8,6,12,30,1.15
+Giresunspor,Turkey,Süper Lig,16100000.000000002,26,7,8,11,29,1.12
+Istanbulspor,Turkey,Süper Lig,15330000.0,26,9,3,14,30,1.15
+Ümraniyespor,Turkey,Süper Lig,12150000.0,26,6,7,13,25,0.96
+Hatayspor,Turkey,Süper Lig,7150000.0,36,6,5,25,23,0.64
+Ajax Amsterdam,Netherlands,Eredivisie,274200000.0,26,16,7,3,55,2.12
+PSV Eindhoven,Netherlands,Eredivisie,201500000.0,26,16,5,5,53,2.04
+Feyenoord Rotterdam,Netherlands,Eredivisie,182000000.0,26,18,7,1,61,2.35
+AZ Alkmaar,Netherlands,Eredivisie,107450000.0,26,16,5,5,53,2.04
+FC Utrecht,Netherlands,Eredivisie,50700000.0,26,10,8,8,38,1.46
+Twente Enschede FC,Netherlands,Eredivisie,43830000.0,26,13,8,5,47,1.81
+Vitesse Arnhem,Netherlands,Eredivisie,39680000.0,26,5,9,12,24,0.92
+SC Heerenveen,Netherlands,Eredivisie,36200000.0,26,9,7,10,34,1.31
+FC Groningen,Netherlands,Eredivisie,34150000.0,26,4,5,17,17,0.65
+Fortuna Sittard,Netherlands,Eredivisie,22330000.0,26,8,5,13,29,1.12
+NEC Nijmegen,Netherlands,Eredivisie,21680000.0,26,7,13,6,34,1.31
+Sparta Rotterdam,Netherlands,Eredivisie,18130000.0,26,13,7,6,46,1.77
+SC Cambuur Leeuwarden,Netherlands,Eredivisie,16730000.0,26,4,4,18,16,0.62
+Excelsior Rotterdam,Netherlands,Eredivisie,14680000.0,26,7,2,17,23,0.88
+FC Volendam,Netherlands,Eredivisie,14230000.0,26,7,5,14,26,1.00
+FC Emmen,Netherlands,Eredivisie,13980000.0,26,4,9,13,21,0.81
+RKC Waalwijk,Netherlands,Eredivisie,13680000.0,25,8,8,9,32,1.28
+Go Ahead Eagles,Netherlands,Eredivisie,12630000.0,25,7,8,10,29,1.16
+Zenit St. Petersburg,Russia,Premier Liga,153800000.0,20,15,3,2,48,2.40
+Spartak Moscow,Russia,Premier Liga,86550000.0,20,12,4,4,40,2.00
+Dynamo Moscow,Russia,Premier Liga,80950000.0,20,10,5,5,35,1.75
+FK Krasnodar,Russia,Premier Liga,70700000.0,20,8,5,7,29,1.45
+CSKA Moscow,Russia,Premier Liga,69650000.0,20,10,5,5,35,1.75
+Lokomotiv Moscow,Russia,Premier Liga,68950000.0,20,6,4,10,22,1.10
+FK Rostov,Russia,Premier Liga,46400000.0,20,12,5,3,41,2.05
+Krylya Sovetov Samara,Russia,Premier Liga,33500000.0,20,5,5,10,20,1.00
+FC Sochi,Russia,Premier Liga,28550000.0,20,8,4,8,28,1.40
+Akhmat Grozny,Russia,Premier Liga,26330000.0,20,10,2,8,32,1.60
+Ural Yekaterinburg,Russia,Premier Liga,19600000.0,20,7,4,9,25,1.25
+FC Pari Nizhniy Novgorod,Russia,Premier Liga,18700000.0,20,5,4,11,19,0.95
+FK Orenburg,Russia,Premier Liga,17700000.0,20,10,1,9,31,1.55
+FK Khimki,Russia,Premier Liga,16550000.0,20,3,4,13,13,0.65
+Torpedo Moscow,Russia,Premier Liga,14900000.0,20,2,4,14,10,0.50
+Fakel Voronezh,Russia,Premier Liga,10700000.0,20,2,11,7,17,0.85
+Club Brugge KV,Belgium,Jupiler Pro League,156700000.0,30,13,10,7,49,1.63
+KRC Genk,Belgium,Jupiler Pro League,122350000.0,30,21,5,4,68,2.27
+Royal Antwerp FC,Belgium,Jupiler Pro League,91450000.0,30,18,6,6,60,2.00
+KAA Gent,Belgium,Jupiler Pro League,73650000.0,30,15,6,9,51,1.70
+RSC Anderlecht,Belgium,Jupiler Pro League,73200000.0,30,12,6,12,42,1.40
+Royale Union Saint Gilloise,Belgium,Jupiler Pro League,49650000.0,30,20,5,5,65,2.17
+Standard Liège,Belgium,Jupiler Pro League,43300000.0,30,13,7,10,46,1.53
+RSC Charleroi,Belgium,Jupiler Pro League,38000000.0,29,12,5,12,41,1.41
+Cercle Brugge ,Belgium,Jupiler Pro League,33500000.0,30,10,11,9,41,1.37
+Oud-Heverlee Leuven,Belgium,Jupiler Pro League,29850000.0,30,10,9,11,39,1.30
+KVC Westerlo,Belgium,Jupiler Pro League,28050000.0,30,14,6,10,48,1.60
+KV Mechelen,Belgium,Jupiler Pro League,25680000.0,29,9,6,14,33,1.14
+KV Oostende,Belgium,Jupiler Pro League,22150000.0,30,6,6,18,24,0.80
+KV Kortrijk,Belgium,Jupiler Pro League,20430000.0,30,8,6,16,30,1.00
+KAS Eupen,Belgium,Jupiler Pro League,18100000.0,30,7,6,17,27,0.90
+SV Zulte Waregem,Belgium,Jupiler Pro League,15500000.0,30,5,9,16,24,0.80
+Sint-Truidense VV,Belgium,Jupiler Pro League,14900000.0,30,10,9,11,39,1.30
+RFC Seraing,Belgium,Jupiler Pro League,12780000.0,30,5,4,21,19,0.63
