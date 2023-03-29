@@ -57,9 +57,9 @@
                 <h4>Total Market Value</h4>
                 <p id="total"></p>
                 <h4>Average Points per Game</h4>
-                <p id="avg"></p>
+                <p id="points"></p>
                 <h4>Total Goals Scored</h4>
-                <p id="worst"></p>
+                <p id="goals"></p>
             </div>
         </div>
     </div>
@@ -92,52 +92,30 @@
 
 
 //     //creating dropdown lists
-//     //Industry filter
-//     var selector = d3.select("#selDataset");
-//     d3.json('/industries').then((data) => {
-//         data.forEach((sample) => {
-//             selector
-//                 .append("option")
-//                 .text(sample)
-//                 .property("value", sample);
-//         });
-//     });
+//     //League filter
+    let selector = d3.select("#selDataset");
+    d3.json('/allleagues').then(data => {
+        data.forEach(sample => {
+            selector
+                .append('option')
+                .text(sample)
+                .property('value', sample);
+        });
+    });
 
 
-//     //Country filter
-//     var selector1 = d3.select("#selDataset1");
-//     d3.json('/countries').then((data) => {
-//         data.forEach((sample) => {
-//             selector1
-//                 .append("option")
-//                 .text(sample)
-//                 .property("value", sample);
-//         });
-//     });
+//     //Club filter
+    let selector1 = d3.select("#selDataset1");
+    d3.json('/allclubs').then(data => {
+        data.forEach(sample => {
+            selector
+                .append('option')
+                .text(sample)
+                .property('value', sample)
+        })
+    })
 
 
-//     //Date From filter
-//     var selector2 = d3.select("#selDataset2");
-//     d3.json('/dates').then((data) => {
-//         data.forEach((sample) => {
-//             selector2
-//                 .append("option")
-//                 .text(sample)
-//                 .property("value", sample);
-//         });
-//     });
-
-
-//     //Date To filter
-//     var selector3 = d3.select("#selDataset3");
-//     d3.json('/dates').then((data) => {
-//         data.forEach((sample) => {
-//             selector3
-//                 .append("option")
-//                 .text(sample)
-//                 .property("value", sample);
-//         });
-//     });
 
 //     function setFilterData(){
 //         let sample = d3.select("#selDataset").node().value;
@@ -148,51 +126,31 @@
 //     };
 
 
-//     //filtering the data
-//     function optionDataFilter() {
+    //filtering the data
+    function optionDataFilter() {
 
-//         let industry = document.getElementById("selDataset").value;
-//         let country = document.getElementById("selDataset1").value;
-//         let from = document.getElementById("selDataset2").value;
-//         let to = document.getElementById("selDataset3").value;
+        let league = document.getElementById("selDataset").value;
+        let club = document.getElementById("selDataset1").value;
 
-//         if (from === 'From') {
-//             let today = new Date();
-//             let dd = String(today.getDate()).padStart(2, '0');
-//             let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-//             let yyyy = today.getFullYear();
-//             from = yyyy - 4 + '-' + mm + '-' + dd;
-//         }
-//         if (to === 'To') {
-//             let today = new Date();
-//             let dd = String(today.getDate()).padStart(2, '0');
-//             let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-//             let yyyy = today.getFullYear();
-//             to = yyyy + '-' + mm + '-' + dd;
-//         }
+
 
 //         let filteredData = [];
 //         let geoFiltered = [];
 
-//         d3.json('/dataset').then((data) => {
-//             if (industry !== "All") {
-//                 filteredData = data.filter(function (item) {
-//                     return item.Industry === industry
-//                 })
-//             }
-//             if (country !== "All") {
-//                 filteredData = filteredData.filter(function (item) {
-//                     return item.Country === country
-//                 })
-//             }
-//             if (industry === "All" && country === "All") {
-//                 filteredData = data
-//             }
-//             filteredData = filteredData.filter(function (item) {
-//                 return item.Date >= from && item.Date <= to
-//             })
-//             changeSummary(filteredData);
-//         });
+        d3.json('/allData').then((data) => {
+            if (league !== "All") {
+                filteredData = data.filter(function (item) {
+                    return item.league === league
+                })
+            }
+            if (club !== "All") {
+                filteredData = filteredData.filter(function (item) {
+                    return item.club === club
+                })
+            }
+            if (industry === "All" && country === "All") {
+                filteredData = data
+            }
 
 //         d3.json('/layoff/geoJSON').then((data) => {
 //             let geoData = data.features
@@ -318,43 +276,43 @@
 //         layoffs.addTo(myMap);
 //     };
 
-//     //creating the line chart
-//     function createLn(geoFiltered) {
-//         var labeldata = [];
-//         var chrtdata = [];
-//         for (var i = 0; i < geoFiltered.length; i++) {
-//             //group by Date and set the laid off count
-//             let date = geoFiltered[i].properties.Date;
-//             let count = geoFiltered[i].properties.Laid_Off_Count;
-//             if (labeldata.includes(date)) {
-//                 let index = labeldata.indexOf(date);
-//                 chrtdata[index] += count;
-//             } else {
-//                 labeldata.push(date);
-//                 chrtdata.push(count);
-//             }
-//         }
+    //creating the line chart
+    function createLn(geoFiltered) {
+        var labeldata = [];
+        var chrtdata = [];
+        for (var i = 0; i < geoFiltered.length; i++) {
+            //group by Date and set the laid off count
+            let date = geoFiltered[i].properties.Date;
+            let count = geoFiltered[i].properties.Laid_Off_Count;
+            if (labeldata.includes(date)) {
+                let index = labeldata.indexOf(date);
+                chrtdata[index] += count;
+            } else {
+                labeldata.push(date);
+                chrtdata.push(count);
+            }
+        }
 
-//         labeldata = labeldata.reverse();
-//         var ctx = document.getElementById("myChart").getContext("2d");
-//         var myChart = new Chart(ctx, {
-//             type: 'line',
-//             data: {
-//                 labels: labeldata,
-//                 datasets: [{
-//                     label: 'Layoffs',
-//                     data: chrtdata,
-//                     backgroundColor: "rgba(170,211,223,0.6)",
-//                     borderColor: "rgba(170,211,223,0.7)",
-//                     pointBorderColor: "rgba(170,211,223)",
-//                     pointBackgroundColor: "rgba(170,211,223)",
-//                     fillColor: "rgba(170,211,223,0.6)",
-//                     fill: true,
+        labeldata = labeldata.reverse();
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labeldata,
+                datasets: [{
+                    label: 'Layoffs',
+                    data: chrtdata,
+                    backgroundColor: "rgba(170,211,223,0.6)",
+                    borderColor: "rgba(170,211,223,0.7)",
+                    pointBorderColor: "rgba(170,211,223)",
+                    pointBackgroundColor: "rgba(170,211,223)",
+                    fillColor: "rgba(170,211,223,0.6)",
+                    fill: true,
 
-//                 }]
-//             }
-//         });
-//     };
+                }]
+            }
+        });
+    };
 
 //     //using groupby to find the sum of layoffs for each filter
 //     function groupBy(arr) {

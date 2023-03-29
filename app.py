@@ -7,6 +7,7 @@ from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, render_template
 import psycopg2
 import pandas as pd
+import numpy as np
 from credentials import username, password
 
 # Set up SQLAlchemuy engine and base
@@ -14,9 +15,6 @@ engine = create_engine(f"postgresql+psycopg2://{username}:{password}@localhost:5
 Base = automap_base()
 Base.prepare(autoload_with=engine)
 data = Base.classes.concat
-
-# JSONify data
-
 
 # Set up Flask
 app = Flask(__name__)
@@ -26,8 +24,52 @@ app = Flask(__name__)
 def index():
     return render_template('dash.html')
 
-@app.route("/jsondata")
-def jsondata():
+@app.route('/allleagues')
+def allLeagues():
+    session = Session(engine)
+    results = []
+    for league in (session.query(data.league).distinct()):
+        results.append(league)
+    session.close()
+    return jsonify(results)
+
+@app.route('/allclubs')
+def allClubs():
+    session = Session(engine)
+    results = []
+    for club in (session.query(data.club).distinct()):
+        results.append(club)
+    session.close()
+    return jsonify(results)
+
+
+
+
+    leagues = np.ravel(results)
+    results = session.query(data.club, data.country, data.league, data.market_value, data.pl, data.w, data.d, data.l, data.pts, data.pts_per_match).all()
+
+    session.close()
+
+    all_teams = []
+    for club, country, league, market_value, pl, w, d, l, pts, pts_per_match in results:
+        team_dict = {}
+        team_dict["club"] = club
+        team_dict["country"] = country
+        team_dict["league"] = league
+        team_dict["market_value"] = market_value
+        team_dict["pl"] = pl
+        team_dict["w"] = w
+        team_dict["d"] = d
+        team_dict["l"] = l
+        team_dict["pts"] = pts
+        team_dict["pts_per_match"] = pts_per_match
+        all_teams.append(team_dict)
+    all_teamsjson = jsonify(all_teams)
+
+    return all_teamsjson
+
+@app.route("/allData")
+def allData():
     session = Session(engine)
     results = session.query(data.club, data.country, data.league, data.market_value, data.pl, data.w, data.d, data.l, data.pts, data.pts_per_match).all()
 
@@ -47,8 +89,10 @@ def jsondata():
         team_dict["pts"] = pts
         team_dict["pts_per_match"] = pts_per_match
         all_teams.append(team_dict)
+    all_teamsjson = jsonify(all_teams)
 
-    return jsonify(all_teams)
+    return all_teamsjson
+
 
 
 # @app.route("/map")
