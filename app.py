@@ -31,7 +31,8 @@ def allLeagues():
     for league in (session.query(data.league).distinct()):
         results.append(league)
     session.close()
-    return jsonify(results)
+    leagues = list(np.ravel(results))
+    return jsonify(leagues)
 
 @app.route('/allclubs')
 def allClubs():
@@ -40,35 +41,12 @@ def allClubs():
     for club in (session.query(data.club).distinct()):
         results.append(club)
     session.close()
-    return jsonify(results)
+    print(results)
+    clubs = list(np.ravel(results))
+    print(clubs)
+    return jsonify(clubs)
 
-
-
-
-    leagues = np.ravel(results)
-    results = session.query(data.club, data.country, data.league, data.market_value, data.pl, data.w, data.d, data.l, data.pts, data.pts_per_match).all()
-
-    session.close()
-
-    all_teams = []
-    for club, country, league, market_value, pl, w, d, l, pts, pts_per_match in results:
-        team_dict = {}
-        team_dict["club"] = club
-        team_dict["country"] = country
-        team_dict["league"] = league
-        team_dict["market_value"] = market_value
-        team_dict["pl"] = pl
-        team_dict["w"] = w
-        team_dict["d"] = d
-        team_dict["l"] = l
-        team_dict["pts"] = pts
-        team_dict["pts_per_match"] = pts_per_match
-        all_teams.append(team_dict)
-    all_teamsjson = jsonify(all_teams)
-
-    return all_teamsjson
-
-@app.route("/allData")
+@app.route("/alldata")
 def allData():
     session = Session(engine)
     results = session.query(data.club, data.country, data.league, data.market_value, data.pl, data.w, data.d, data.l, data.pts, data.pts_per_match).all()

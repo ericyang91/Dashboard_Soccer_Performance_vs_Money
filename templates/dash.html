@@ -33,11 +33,11 @@
             <h2>Dashboard</h2>
             <div class="filters">
                 <h4>League</h4>
-                <select class="dd-country" id="selDataset" onchange="optionDataFilter()">
+                <select class="dd-country" id="selDataset" onchange="optionChanged()">
                     <option selected>All</option>
                 </select>
                 <h4>Club</h4>
-                <select class="dd-country" id="selDataset1" onchange="optionDataFilter()">
+                <select class="dd-country" id="selDataset1" onchange="optionChanged()">
                     <option selected>All</option>
                 </select>
                 <!-- <h3>Date</h3>
@@ -84,8 +84,6 @@
         crossorigin=""
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="jq.js"></script>
-<script src="main.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>
@@ -108,7 +106,7 @@
     let selector1 = d3.select("#selDataset1");
     d3.json('/allclubs').then(data => {
         data.forEach(sample => {
-            selector
+            selector1
                 .append('option')
                 .text(sample)
                 .property('value', sample)
@@ -127,30 +125,29 @@
 
 
     //filtering the data
-    function optionDataFilter() {
+    function optionChanged() {
 
         let league = document.getElementById("selDataset").value;
         let club = document.getElementById("selDataset1").value;
+        let selectedData = [];
 
-
-
-//         let filteredData = [];
-//         let geoFiltered = [];
-
-        d3.json('/allData').then((data) => {
+        d3.json('/alldata').then(data => {
             if (league !== "All") {
-                filteredData = data.filter(function (item) {
+                selectedData = data.filter(function (item) {
                     return item.league === league
+                    console.log(item.league)
                 })
             }
             if (club !== "All") {
-                filteredData = filteredData.filter(function (item) {
+                selectedData = selectedData.filter(function (item) {
                     return item.club === club
                 })
             }
-            if (industry === "All" && country === "All") {
-                filteredData = data
-            }
+            if (league === "All" && club === "All") {
+                selectedData = data
+                }
+            })
+        }
 
 //         d3.json('/layoff/geoJSON').then((data) => {
 //             let geoData = data.features
@@ -176,7 +173,7 @@
 //         });
 //     };
 
-
+        
 //     //generating a summary based on the filters
 //     function changeSummary(data){
 //         if (data.length === 0) {
@@ -364,6 +361,6 @@
 //     };
 
 //     init();
-// </script>
-// </body>
-// </html>
+</script>
+</body>
+</html>
