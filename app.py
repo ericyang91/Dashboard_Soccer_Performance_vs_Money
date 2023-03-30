@@ -3,18 +3,17 @@ import sqlalchemy
 from sqlalchemy import Column, Integer, String, Float, Boolean
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine, func, MetaData
 from flask import Flask, jsonify, render_template
 import psycopg2
 import pandas as pd
-import numpy as np
 from credentials import username, password
 
-# Set up SQLAlchemuy engine and base
+# Set up SQLAlchemuy engine and base to talk to the database
 engine = create_engine(f"postgresql+psycopg2://{username}:{password}@localhost:5432/soccer_money")
 Base = automap_base()
-Base.prepare(autoload_with=engine)
-data = Base.classes.concat
+Base.prepare(autoload_with = engine)
+data = Base.classes.all_leagues
 
 # Set up Flask
 app = Flask(__name__)
@@ -27,24 +26,36 @@ def index():
 @app.route('/allleagues')
 def allLeagues():
     session = Session(engine)
-    results = []
-    for league in (session.query(data.league).distinct()):
-        results.append(league)
-    session.close()
-    leagues = list(np.ravel(results))
-    return jsonify(leagues)
+    countries = []
+    query_country = session.query(data.country).distinct()
+    countries = [sqlalchemyobject1[0] for sqlalchemyobject1 in query_country.all()]
+    query_league = session.query(data.country, data.league).distinct()
+    results = [(sqlalchemyobject2[0], sqlalchemyobject2[1] )for sqlalchemyobject2 in query_league.all()]
+    return results
 
-@app.route('/allclubs')
-def allClubs():
-    session = Session(engine)
-    results = []
-    for club in (session.query(data.club).distinct()):
-        results.append(club)
+    # for league in (session.query(data.league).distinct().filter(data.country.in_(countries))):
+    #     results.append(league)
     session.close()
-    print(results)
-    clubs = list(np.ravel(results))
-    print(clubs)
-    return jsonify(clubs)
+    # print(results)
+    # print('--------------')
+    print(query)
+    print('-------------')
+    print(query.all)
+    # leagues = list(np.ravel(results))
+    
+    # return jsonify(leagues)
+
+# @app.route('/allclubs')
+# def allClubs():
+#     session = Session(engine)
+#     results = []
+#     for club in (session.query(data.club).distinct()):
+#         results.append(club)
+#     session.close()
+    # print(results)
+    # clubs = list(np.ravel(results))
+    # print(clubs)
+    # return jsonify(clubs)
 
 @app.route("/alldata")
 def allData():
@@ -67,9 +78,9 @@ def allData():
         team_dict["pts"] = pts
         team_dict["pts_per_match"] = pts_per_match
         all_teams.append(team_dict)
-    all_teamsjson = jsonify(all_teams)
+    # all_teamsjson = jsonify(all_teams)
 
-    return all_teamsjson
+    # return all_teamsjson
 
 
 

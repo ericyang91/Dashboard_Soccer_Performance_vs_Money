@@ -32,4 +32,7 @@ union all
 select *
 from super_lig;
 
+alter table all_leagues
+add primary key (club);
+
 select * from all_leagues
