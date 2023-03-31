@@ -89,29 +89,84 @@
 <script>
 
 
+
+
 //     //creating dropdown lists
 //     //League filter
+   
     let selector = d3.select("#selDataset");
     d3.json('/allleagues').then(data => {
+        console.log(data);
         data.forEach(sample => {
             selector
                 .append('option')
                 .text(sample)
-                .property('value', sample);
+                .property('value', sample);      
         });
     });
 
 
-//     //Club filter
-    let selector1 = d3.select("#selDataset1");
-    d3.json('/allclubs').then(data => {
-        data.forEach(sample => {
-            selector1
-                .append('option')
-                .text(sample)
-                .property('value', sample)
-        })
-    })
+    // function optionChanged() {
+
+    // let league = document.getElementById("selDataset").value;
+    // let club = document.getElementById("selDataset1").value;
+    // let selectedData = [];
+
+    // d3.json('/alldata').then(data => {
+    //     if (league !== "All") {
+    //         selectedData = data.filter(function (item) {
+    //             return item.league === league
+    //             console.log(item.league)
+    //         })
+    //     }
+    //     if (club !== "All") {
+    //         selectedData = selectedData.filter(function (item) {
+    //             return item.club === club
+    //         })
+    //     }
+    //     if (league === "All" && club === "All") {
+    //         selectedData = data
+    //         }
+    //     })
+    // }
+
+
+    function optionChanged() {
+
+        let league = document.getElementById("selDataset").value;
+        // let club = document.getElementById("selDataset1").value;
+        let selectedData = [];
+        console.log(league)
+
+        // d3.json('/alldata').then(data => {
+        //     if (league !== "All") {
+        //         selectedData = data.filter(function (item) {
+        //             return item.league === league
+        //             console.log(item.league)
+        //         })
+        //     }
+        //     if (club !== "All") {
+        //         selectedData = selectedData.filter(function (item) {
+        //             return item.club === club
+        //         })
+        //     }
+        //     if (league === "All" && club === "All") {
+        //         selectedData = data
+        //         }
+        //     })
+        }        
+
+// Club filter
+// function updateclubfilter(selectedleague)    
+//     let selector1 = d3.select("#selDataset1");
+//     d3.json(`/${selectedleague}`).then(data => {
+//         data.forEach(sample => {
+//             selector1
+//                 .append('option')
+//                 .text(sample)
+//                 .property('value', sample)
+//         });
+//     });
 
 
 
@@ -124,30 +179,6 @@
 //     };
 
 
-    //filtering the data
-    function optionChanged() {
-
-        let league = document.getElementById("selDataset").value;
-        let club = document.getElementById("selDataset1").value;
-        let selectedData = [];
-
-        d3.json('/alldata').then(data => {
-            if (league !== "All") {
-                selectedData = data.filter(function (item) {
-                    return item.league === league
-                    console.log(item.league)
-                })
-            }
-            if (club !== "All") {
-                selectedData = selectedData.filter(function (item) {
-                    return item.club === club
-                })
-            }
-            if (league === "All" && club === "All") {
-                selectedData = data
-                }
-            })
-        }
 
 //         d3.json('/layoff/geoJSON').then((data) => {
 //             let geoData = data.features
@@ -274,42 +305,42 @@
 //     };
 
     //creating the line chart
-    function createLn(geoFiltered) {
-        var labeldata = [];
-        var chrtdata = [];
-        for (var i = 0; i < geoFiltered.length; i++) {
-            //group by Date and set the laid off count
-            let date = geoFiltered[i].properties.Date;
-            let count = geoFiltered[i].properties.Laid_Off_Count;
-            if (labeldata.includes(date)) {
-                let index = labeldata.indexOf(date);
-                chrtdata[index] += count;
-            } else {
-                labeldata.push(date);
-                chrtdata.push(count);
-            }
-        }
+    // function createLn(geoFiltered) {
+    //     var labeldata = [];
+    //     var chrtdata = [];
+    //     for (var i = 0; i < geoFiltered.length; i++) {
+    //         //group by Date and set the laid off count
+    //         let date = geoFiltered[i].properties.Date;
+    //         let count = geoFiltered[i].properties.Laid_Off_Count;
+    //         if (labeldata.includes(date)) {
+    //             let index = labeldata.indexOf(date);
+    //             chrtdata[index] += count;
+    //         } else {
+    //             labeldata.push(date);
+    //             chrtdata.push(count);
+    //         }
+    //     }
 
-        labeldata = labeldata.reverse();
-        var ctx = document.getElementById("myChart").getContext("2d");
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labeldata,
-                datasets: [{
-                    label: 'Layoffs',
-                    data: chrtdata,
-                    backgroundColor: "rgba(170,211,223,0.6)",
-                    borderColor: "rgba(170,211,223,0.7)",
-                    pointBorderColor: "rgba(170,211,223)",
-                    pointBackgroundColor: "rgba(170,211,223)",
-                    fillColor: "rgba(170,211,223,0.6)",
-                    fill: true,
+    //     labeldata = labeldata.reverse();
+    //     var ctx = document.getElementById("myChart").getContext("2d");
+    //     var myChart = new Chart(ctx, {
+    //         type: 'line',
+    //         data: {
+    //             labels: labeldata,
+    //             datasets: [{
+    //                 label: 'Layoffs',
+    //                 data: chrtdata,
+    //                 backgroundColor: "rgba(170,211,223,0.6)",
+    //                 borderColor: "rgba(170,211,223,0.7)",
+    //                 pointBorderColor: "rgba(170,211,223)",
+    //                 pointBackgroundColor: "rgba(170,211,223)",
+    //                 fillColor: "rgba(170,211,223,0.6)",
+    //                 fill: true,
 
-                }]
-            }
-        });
-    };
+    //             }]
+    //         }
+    //     });
+    // };
 
 //     //using groupby to find the sum of layoffs for each filter
 //     function groupBy(arr) {

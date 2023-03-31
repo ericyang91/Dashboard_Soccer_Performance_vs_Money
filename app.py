@@ -26,58 +26,40 @@ def index():
 @app.route('/allleagues')
 def allLeagues():
     session = Session(engine)
-    countries = []
-    query_country = session.query(data.country).distinct()
-    countries = [sqlalchemyobject1[0] for sqlalchemyobject1 in query_country.all()]
-    query_league = session.query(data.country, data.league).distinct()
-    results = [(sqlalchemyobject2[0], sqlalchemyobject2[1] )for sqlalchemyobject2 in query_league.all()]
-    return results
-
-    # for league in (session.query(data.league).distinct().filter(data.country.in_(countries))):
-    #     results.append(league)
+    query_league = session.query(data.country).distinct()
     session.close()
-    # print(results)
-    # print('--------------')
-    print(query)
-    print('-------------')
-    print(query.all)
-    # leagues = list(np.ravel(results))
-    
-    # return jsonify(leagues)
+    results = [(sqlalchemyobject[0])for sqlalchemyobject in query_league.all()]
+    return jsonify(results)
 
-# @app.route('/allclubs')
-# def allClubs():
-#     session = Session(engine)
-#     results = []
-#     for club in (session.query(data.club).distinct()):
-#         results.append(club)
-#     session.close()
-    # print(results)
-    # clubs = list(np.ravel(results))
-    # print(clubs)
-    # return jsonify(clubs)
-
-@app.route("/alldata")
-def allData():
+@app.route('/premierleague')
+def premierleague():
     session = Session(engine)
-    results = session.query(data.club, data.country, data.league, data.market_value, data.pl, data.w, data.d, data.l, data.pts, data.pts_per_match).all()
-
+    query = session.query(data.club).filter(data.league == 'Premier League').all()
     session.close()
+    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+    return jsonify(results)
 
-    all_teams = []
-    for club, country, league, market_value, pl, w, d, l, pts, pts_per_match in results:
-        team_dict = {}
-        team_dict["club"] = club
-        team_dict["country"] = country
-        team_dict["league"] = league
-        team_dict["market_value"] = market_value
-        team_dict["pl"] = pl
-        team_dict["w"] = w
-        team_dict["d"] = d
-        team_dict["l"] = l
-        team_dict["pts"] = pts
-        team_dict["pts_per_match"] = pts_per_match
-        all_teams.append(team_dict)
+# @app.route("/alldata")
+# def allData():
+#     session = Session(engine)
+#     results = session.query(data.club, data.country, data.league, data.market_value, data.pl, data.w, data.d, data.l, data.pts, data.pts_per_match).all()
+
+#     session.close()
+
+#     all_teams = []
+#     for club, country, league, market_value, pl, w, d, l, pts, pts_per_match in results:
+#         team_dict = {}
+#         team_dict["club"] = club
+#         team_dict["country"] = country
+#         team_dict["league"] = league
+#         team_dict["market_value"] = market_value
+#         team_dict["pl"] = pl
+#         team_dict["w"] = w
+#         team_dict["d"] = d
+#         team_dict["l"] = l
+#         team_dict["pts"] = pts
+#         team_dict["pts_per_match"] = pts_per_match
+#         all_teams.append(team_dict)
     # all_teamsjson = jsonify(all_teams)
 
     # return all_teamsjson
