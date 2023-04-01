@@ -65,12 +65,13 @@
     </div>
     <main>
         <div class="chart-box">
-            <canvas id="myChart" style="width: 100%; max-height: 340px"></canvas>
+            <div id="bubble"></div>
+            <canvas id="myChart" style="width: 100%; max-height: 100px"></canvas>
+          
         </div>
         <div class="map-bar-box">
             <div class="map-box">
                 <div id="map" style="width: 100%; height: 300px"></div>
-                    <div id="'bubble"></div>
             </div>
             <div class="bar-box">
                 <canvas id="canvas" style="width: 100%; height: 300px"></canvas>
@@ -146,9 +147,33 @@
 
 
     function bubbleChart(filtered) {
-        let x = filtered.map(a => a.pts_per_match)
-        let y = filtered.map(a => Number((a.w)/(a.l)).toFixed(2))
-        console.log(y)
+        let x = filtered.map(a => a.pts_per_match);
+        let y = filtered.map(a => Number((a.w)/(a.l)).toFixed(2));
+        let text = filtered.map(a => a.club + '<br>Market Value: ' + a.market_value);
+        let size = filtered.map(a => (a.market_value)/5000000);       
+        let data = [{
+            x: x,
+            y: y,
+            mode: 'markers',
+            marker: {
+                size: size,
+            },
+            text: text
+        }];
+        let layout = {
+            title: 'Bubble Chart: Value and Performance',
+            xaxis: {
+                title: 'Average Points Won per Match'
+            },
+            yaxis: {
+                title: 'Win:Loss Ratio'
+            }
+        };
+        let config = {
+            responsive: true
+        };
+        
+        Plotly.newPlot('bubble', data, layout, config);
         
         
         // let data = [{
