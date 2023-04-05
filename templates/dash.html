@@ -97,16 +97,23 @@
 //     //League filter
    
     let selector = d3.select("#selDataset");
-    d3.json('/allleagues').then(data => {
-        console.log(data);
-        data.forEach(sample => {
+    d3.json('/allleagues').then(data => {        
+        data.forEach(sample => {                   
             selector
                 .append('option')
                 .text(sample)
-                .property('value', sample);      
+                .property('value', sample);            
+            let sampleleague = sample;            
+            selectorClub(sampleleague);
         });
     });
 
+    function selectorClub(sampleleague) {
+        d3.json('/allclubs').then(data => {
+            data.country == sampleleague;
+            console.log(data.club)       
+        })
+    }
 
     // function optionChanged() {
 
@@ -140,8 +147,8 @@
             d3.json('/alldata').then(data => {
                 let filtered = data.filter(sample => sample.country === leaguedata);               
                 bubbleChart(filtered);
-            }
-        )}
+            })
+        }
         if (leaguedata == 'All') {
             d3.json('/alldata').then(data => {
                 let allcountries = data                

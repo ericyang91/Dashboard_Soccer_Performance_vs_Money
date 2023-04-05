@@ -32,7 +32,15 @@ def allLeagues():
     session = Session(engine)
     query_league = session.query(data.country).distinct()
     session.close()
-    results = [(sqlalchemyobject[0])for sqlalchemyobject in query_league.all()]
+    results = [(sqlalchemyobject[0]) for sqlalchemyobject in query_league.all()]
+    return jsonify(results)
+
+@app.route('/allclubs')
+def allClubs():
+    session = Session(engine)
+    query_club = session.query(data.club).distinct()
+    session.close()
+    results = [(sqlalchemyobject[0]) for sqlalchemyobject in query_club.all()]
     return jsonify(results)
 
 @app.route("/alldata")
@@ -59,116 +67,101 @@ def allData():
     
     return jsonify(all_teams)
 
-@app.route('/England')
-def premierleague():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'Premier League').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/England')
+# def premierleague():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'Premier League').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Spain')
-def laliga():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'LaLiga').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Spain')
+# def laliga():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'LaLiga').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Italy')
-def seriea():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'Serie A').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Italy')
+# def seriea():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'Serie A').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Germany')
-def gbundesliga():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.country == 'Germany').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Germany')
+# def gbundesliga():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.country == 'Germany').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/France')
-def fligue1():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'Ligue 1').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/France')
+# def fligue1():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'Ligue 1').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Monaco')
-def mligue1():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'Ligue 1').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Monaco')
+# def mligue1():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'Ligue 1').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Turkey')
-def superlig():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.country == 'Turkey').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Turkey')
+# def superlig():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.country == 'Turkey').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Austria')
-def abundesliga():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.country == 'Austria').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Austria')
+# def abundesliga():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.country == 'Austria').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Netherlands')
-def eredivise():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'Eredivisie').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Netherlands')
+# def eredivise():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'Eredivisie').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Belgium')
-def jupiler():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'Jupiler Pro League').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Belgium')
+# def jupiler():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'Jupiler Pro League').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Portugal')
-def ligaportugal():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'Liga Portugal').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
+# @app.route('/Portugal')
+# def ligaportugal():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'Liga Portugal').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
-@app.route('/Russia')
-def premierligue():
-    session = Session(engine)
-    query = session.query(data.club).filter(data.league == 'Premier Liga').all()
-    session.close()
-    results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
-    return jsonify(results)
-
-
-
-
-# @app.route("/map")
-# def map():
-#     return render_template('map.html')
-
-# @app.route("/chart")
-# def chart():
-#     return render_template('chart.html')
-
-# @app.route("/pie")
-# def pie():
-#     return render_template('pie.html')
+# @app.route('/Russia')
+# def premierligue():
+#     session = Session(engine)
+#     query = session.query(data.club).filter(data.league == 'Premier Liga').all()
+#     session.close()
+#     results = [(sqlalchemyobject[0]) for (sqlalchemyobject) in query]
+#     return jsonify(results)
 
 if __name__ == '__main__':
     app.run(debug=True)
