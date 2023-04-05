@@ -105,43 +105,18 @@
                 .property('value', sample);            
             let sampleleague = sample;            
             selectorClub(sampleleague);
+            console.log(sampleleague)
         });
     });
 
-    function selectorClub(sampleleague) {
-        d3.json('/allclubs').then(data => {
-            data.country == sampleleague;
-            console.log(data.club)       
-        })
-    }
-
-    // function optionChanged() {
-
-    // let league = document.getElementById("selDataset").value;
-    // let club = document.getElementById("selDataset1").value;
-    // let selectedData = [];
-
-    // d3.json('/alldata').then(data => {
-    //     if (league !== "All") {
-    //         selectedData = data.filter(function (item) {
-    //             return item.league === league
-    //             console.log(item.league)
-    //         })
-    //     }
-    //     if (club !== "All") {
-    //         selectedData = selectedData.filter(function (item) {
-    //             return item.club === club
-    //         })
-    //     }
-    //     if (league === "All" && club === "All") {
-    //         selectedData = data
-    //         }
-    //     })
-    // }
-
+    async function selectorClub(sampleleague) {
+        let data = await d3.json('/alldata');
+        // console.log(data)
+        let clubs = data.filter(c => c.country == sampleleague).map(c => c.club);            
+        // console.log(clubs)
+        }
 
     function optionChanged() {
-
         let leaguedata = document.getElementById("selDataset").value;
         if (leaguedata !== 'All') {
             d3.json('/alldata').then(data => {
@@ -187,10 +162,7 @@
         
         Plotly.newPlot('bubble', data, layout, config);
     }
-
-
-
-
+        
         function bubbleAll(allcountries) {
         let leagues = [...new Set(allcountries.map(a => a.league))]; //create a SET of leagues and then convert it to a list by using '[...]'
         let colors = ["#cd6155", "#9b59b6", "#5dade2", "#48c9b0", "#f4d03f", "#8f39c12", "#85c1e9", "#aab7b8", "#d7bde2", "#935116", "#e6b0aa"];
@@ -215,7 +187,8 @@
             },
             yaxis: {
                 title: 'Win:Loss Ratio'
-            }
+            },
+            showlegend: true
         };
         let config = {
             responsive: true
@@ -224,78 +197,12 @@
         Plotly.newPlot('bubble', data, layout, config);
     }
         
-        
-        // let data = [{
-        // x: [1, 2, 3, 4],
-        // y: [10, 11, 12, 13],
-        // mode: 'markers',
-        // marker: {
-        //     size: [40, 60, 80, 100],
-        //     color: ['red', 'green', 'blue', 'purple']
-        // },
-        // type: 'scatter'
-        // }];
-
-        // // Define your layout
-        // let layout = {
-        // title: 'Bubble Chart Example',
-        // xaxis: { title: 'X Axis' },
-        // yaxis: { title: 'Y Axis' },
-        // showlegend: false
-        // };
-
+ 
+     
 
         
 
-        
 
-// Club filter
-// function updateclubfilter(selectedleague)    
-//     let selector1 = d3.select("#selDataset1");
-//     d3.json(`/${selectedleague}`).then(data => {
-//         data.forEach(sample => {
-//             selector1
-//                 .append('option')
-//                 .text(sample)
-//                 .property('value', sample)
-//         });
-//     });
-
-
-
-//     function setFilterData(){
-//         let sample = d3.select("#selDataset").node().value;
-
-//         filteredData = data.filter(function (item) {
-//             return item.Industry == sample
-//         })
-//     };
-
-
-
-//         d3.json('/layoff/geoJSON').then((data) => {
-//             let geoData = data.features
-//             if (industry !== "All") {
-//                 geoFiltered = geoData.filter(function (item) {
-//                     return item.properties.Industry === industry
-//                 })
-//             }
-//             if (country !== "All") {
-//                 geoFiltered = geoFiltered.filter(function (item) {
-//                     return item.properties.Country === country
-//                 })
-//             }
-//             if (industry === "All" && country === "All") {
-//                 geoFiltered = geoData
-//             }
-//             geoFiltered = geoFiltered.filter(function (item) {
-//                 return item.properties.Date >= from && item.properties.Date <= to
-//             })
-//             createMap(geoFiltered);
-//             createLn(geoFiltered);
-//             groupBy(geoFiltered);
-//         });
-//     };
 
         
 //     //generating a summary based on the filters
