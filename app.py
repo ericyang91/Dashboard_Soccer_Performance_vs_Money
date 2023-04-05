@@ -7,7 +7,8 @@ from sqlalchemy import create_engine, func, MetaData
 from flask import Flask, jsonify, render_template
 import psycopg2
 import pandas as pd
-from credentials import username, password
+# from credentials import username, password
+from credentials.credentials.py import username, password
 
 # Set up SQLAlchemuy engine and base to talk to the database
 engine = create_engine(f"postgresql+psycopg2://{username}:{password}@localhost:5432/soccer_money")
