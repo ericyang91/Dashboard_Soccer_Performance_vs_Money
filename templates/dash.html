@@ -40,15 +40,6 @@
                 <select class="dd-country" id="selDataset1" onchange="optionChanged()">
                     <option selected>All</option>
                 </select>
-                <!-- <h3>Date</h3>
-                <h4>From</h4>
-                <select class="dd-country" id="selDataset2" onchange="optionDataFilter()">
-                    <option>From</option>
-                </select>
-                <h4>To</h4>
-                <select class="dd-country" id="selDataset3" onchange="optionDataFilter()">
-                    <option>To</option>
-                </select> -->
             </div>
         </div>
         <div class="sidebar">
@@ -103,33 +94,46 @@
                 .append('option')
                 .text(sample)
                 .property('value', sample);            
-            let sampleleague = sample;            
-            selectorClub(sampleleague);
-            console.log(sampleleague)
+            let sampleleague = sample;         
         });
     });
 
-    async function selectorClub(sampleleague) {
-        let data = await d3.json('/alldata');
-        // console.log(data)
-        let clubs = data.filter(c => c.country == sampleleague).map(c => c.club);            
-        // console.log(clubs)
-        }
+    let selector1 = d3.select("#selDataset1")
+    function selectorClub(countryName) {
+        selector1.selectAll('option').remove()
+        d3.json('/alldata').then(data => {
+            let clubList = data.filter(sample => sample.country === countryName);
+            clubName = clubList.map(d => d.club);
+            clubName.forEach(sample => {
+                selector1
+                    .append('option')
+                    .text(sample)
+                    .property('value', sample);
+            });
+        });
+    };
+
+     
 
     function optionChanged() {
         let leaguedata = document.getElementById("selDataset").value;
         if (leaguedata !== 'All') {
             d3.json('/alldata').then(data => {
-                let filtered = data.filter(sample => sample.country === leaguedata);               
-                bubbleChart(filtered);
+                let filtered = data.filter(sample => sample.country === leaguedata);
+                bubbleChart(filtered);                
+            })
+            d3.json('/allleagues').then(data => {
+                countryName = data.filter(sample => sample === leaguedata)[0];
+                // console.log(clubName)
+                selectorClub(countryName);
             })
         }
         if (leaguedata == 'All') {
             d3.json('/alldata').then(data => {
-                let allcountries = data                
+                let allcountries = data;               
                 bubbleAll(allcountries);
-            })
-        }
+            });
+        };
     };
 
 
@@ -158,11 +162,10 @@
         };
         let config = {
             responsive: true
-        };
-        
+        };     
         Plotly.newPlot('bubble', data, layout, config);
-    }
-        
+    };     
+
         function bubbleAll(allcountries) {
         let leagues = [...new Set(allcountries.map(a => a.league))]; //create a SET of leagues and then convert it to a list by using '[...]'
         let colors = ["#cd6155", "#9b59b6", "#5dade2", "#48c9b0", "#f4d03f", "#8f39c12", "#85c1e9", "#aab7b8", "#d7bde2", "#935116", "#e6b0aa"];
@@ -192,8 +195,7 @@
         };
         let config = {
             responsive: true
-        };
-        
+        };        
         Plotly.newPlot('bubble', data, layout, config);
     }
         
