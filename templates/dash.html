@@ -44,13 +44,21 @@
         </div>
         <div class="sidebar">
             <div class="summary">
-                <h2>Summary</h2>
-                <h4>Total Market Value</h4>
-                <p id="total"></p>
-                <h4>Average Points per Game</h4>
+                <h2>Team Summary</h2>
+                <h4>Market Value</h4>
+                <p id="value"></p>
+                <h4>Total Points</h4>
                 <p id="points"></p>
-                <h4>Total Goals Scored</h4>
-                <p id="goals"></p>
+                <h4>Average Points per Game</h4>
+                <p id="ptspergame"></p>
+                <h4>Matches Played</h4>
+                <p id="matches"></p>
+                <h4>Games Won</h4>
+                <p id="won"></p>
+                <h4>Games Drawn</h4>
+                <p id="drawn"></p>
+                <h4>Games Lost</h4>
+                <p id="lost"></p>
             </div>
         </div>
     </div>
@@ -98,6 +106,8 @@
         });
     });
 
+
+
     let selector1 = d3.select("#selDataset1")
     function selectorClub(countryName) {
         selector1.selectAll('option').remove()
@@ -124,7 +134,6 @@
             })
             d3.json('/allleagues').then(data => {
                 countryName = data.filter(sample => sample === leaguedata)[0];
-                // console.log(clubName)
                 selectorClub(countryName);
             })
         }
@@ -135,6 +144,7 @@
             });
         };
     };
+
 
 
     function bubbleChart(filtered) {
@@ -165,6 +175,8 @@
         };     
         Plotly.newPlot('bubble', data, layout, config);
     };     
+
+
 
         function bubbleAll(allcountries) {
         let leagues = [...new Set(allcountries.map(a => a.league))]; //create a SET of leagues and then convert it to a list by using '[...]'
@@ -197,7 +209,7 @@
             responsive: true
         };        
         Plotly.newPlot('bubble', data, layout, config);
-    }
+    };
         
  
      
