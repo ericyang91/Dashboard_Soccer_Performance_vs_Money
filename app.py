@@ -8,13 +8,16 @@ from flask import Flask, jsonify, render_template
 import psycopg2
 import pandas as pd
 # from credentials import username, password
-from credentials.credentials.py import username, password
+from credentials.credentials import username, password
 
 # Set up SQLAlchemuy engine and base to talk to the database
 engine = create_engine(f"postgresql+psycopg2://{username}:{password}@localhost:5432/soccer_money")
 Base = automap_base()
 Base.prepare(autoload_with = engine)
+session = Session(engine)
+session.commit()
 data = Base.classes.all_leagues
+session.close()
 
 # Set up Flask
 app = Flask(__name__)

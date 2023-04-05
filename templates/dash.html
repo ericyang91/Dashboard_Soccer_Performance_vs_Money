@@ -138,11 +138,16 @@
         let leaguedata = document.getElementById("selDataset").value;
         if (leaguedata !== 'All') {
             d3.json('/alldata').then(data => {
-                let filtered = data.filter(sample => sample.country === leaguedata);
-                console.log(filtered);
+                let filtered = data.filter(sample => sample.country === leaguedata);               
                 bubbleChart(filtered);
             }
         )}
+        if (leaguedata == 'All') {
+            d3.json('/alldata').then(data => {
+                let allcountries = data                
+                bubbleAll(allcountries);
+            })
+        }
     };
 
 
@@ -174,6 +179,43 @@
         };
         
         Plotly.newPlot('bubble', data, layout, config);
+    }
+
+
+
+
+        function bubbleAll(allcountries) {
+        let leagues = [...new Set(allcountries.map(a => a.league))]; //create a SET of leagues and then convert it to a list by using '[...]'
+        let colors = ["#cd6155", "#9b59b6", "#5dade2", "#48c9b0", "#f4d03f", "#8f39c12", "#85c1e9", "#aab7b8", "#d7bde2", "#935116", "#e6b0aa"];
+        let x = allcountries.map(a => a.pts_per_match);        
+        let y = allcountries.map(a => Number((a.w)/(a.l)).toFixed(2));
+        let text = allcountries.map(a => a.club + '<br>Market Value: ' + a.market_value);
+        let size = allcountries.map(a => (a.market_value)/5000000);       
+        let data = [{
+            x: x,
+            y: y,
+            mode: 'markers',
+            marker: {
+                size: size,
+                color: allcountries.map(a => colors[leagues.indexOf(a.league)]) //get the index of a.league from the list 'leagues' and return the corresponding colors from the 'colors' list
+            },
+            text: text
+        }];
+        let layout = {
+            title: 'Bubble Chart: Value and Performance',
+            xaxis: {
+                title: 'Average Points Won per Match'
+            },
+            yaxis: {
+                title: 'Win:Loss Ratio'
+            }
+        };
+        let config = {
+            responsive: true
+        };
+        
+        Plotly.newPlot('bubble', data, layout, config);
+    }
         
         
         // let data = [{
@@ -196,7 +238,7 @@
         // };
 
 
-    }
+        
 
         
 

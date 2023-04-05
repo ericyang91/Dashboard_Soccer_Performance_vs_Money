@@ -35,4 +35,10 @@ from super_lig;
 alter table all_leagues
 add primary key (club);
 
+select * from all_leagues 
+where country = 'Monaco'
+
+update all_leagues
+set country = 'France'
+where country = 'Monaco'
 select * from all_leagues
