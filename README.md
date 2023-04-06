@@ -1,5 +1,13 @@
 # Soccer: Is the Money Worth the Goals?
 
+## Purpose
+
+## Dashboard
+
+[Transfermarkt](https://www.transfermarkt.us/)
+
+
+## Libraries and Modules
 [![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat)](https://www.python.org/)
 [![Pandas](https://img.shields.io/badge/-Pandas-150458?logo=pandas&logoColor=white&style=flat)](https://pandas.pydata.org/)
 [![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?logo=postgresql&logoColor=white&style=flat)](https://www.postgresql.org/)
