@@ -110,7 +110,7 @@
 
     let selector1 = d3.select("#selDataset1")
     function selectorClub(countryName) {
-        selector1.selectAll('option').remove()
+        selector1.selectAll('option').empty();
         d3.json('/alldata').then(data => {
             let clubList = data.filter(sample => sample.country === countryName);
             clubName = clubList.map(d => d.club);
