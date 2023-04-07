@@ -135,6 +135,7 @@
             d3.json('/allleagues').then(data => {
                 countryName = data.filter(sample => sample === leaguedata)[0];
                 selectorClub(countryName);
+                sideMenu(countryName)
             })
         }
         if (leaguedata == 'All') {
@@ -144,6 +145,16 @@
             });
         };
     };
+
+
+
+    // Creating the side menu
+    function sideMenu(countryName) {
+        d3.json('./alldata').then(data => {
+            
+        })
+
+    }
 
 
 
@@ -210,46 +221,7 @@
         };        
         Plotly.newPlot('bubble', data, layout, config);
     };
-        
- 
-     
 
-        
-
-
-
-        
-//     //generating a summary based on the filters
-//     function changeSummary(data){
-//         if (data.length === 0) {
-//             d3.json('/dataset').then((data) => {
-//                 changeSummary(data);
-//             });
-//             return;
-//         }
-//         let totalLaidOff = 0;
-//         for (let i = 0; i < data.length; i++) {
-//             totalLaidOff += data[i].Laid_Off_Count;
-//         }
-//         let avg = totalLaidOff/data.length
-//         let worstMonth = 0;
-//         let worstYear = 0;
-//         let worstMonthYearCount = 0;
-//         for (let i = 0; i < data.length; i++) {
-//             let date = data[i].Date;
-//             let year = date.substring(0, 4);
-//             let month = date.substring(5, 7);
-//             let count = data[i].Laid_Off_Count;
-//             if (count > worstMonthYearCount) {
-//                 worstMonthYearCount = count;
-//                 worstMonth = month;
-//                 worstYear = year;
-//             }
-//         }
-//         document.getElementById("avg").innerHTML = avg.toFixed(2);
-//         document.getElementById("total").innerHTML = totalLaidOff;
-//         document.getElementById("worst").innerHTML = worstMonth + "/" + worstYear + " " + worstMonthYearCount + " people";
-//     };
 
 
 //     //creating a leaflet map
