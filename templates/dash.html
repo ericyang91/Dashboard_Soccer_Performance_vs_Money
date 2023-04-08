@@ -37,7 +37,7 @@
                     <option selected>All</option>
                 </select>
                 <h4>Club</h4>
-                <select class="dd-country" id="selDataset1" onchange="optionChanged()">
+                <select class="dd-country" id="selDataset1" onchange="teamoptionChanged(this.value)">
                     <option selected>All</option>
                 </select>
             </div>
@@ -45,7 +45,7 @@
         <div class="sidebar">
             <div class="summary">
                 <h2>Team Summary</h2>
-                <h4>Market Value</h4>
+                <h4>Market Value in €</h4>
                 <p id="value"></p>
                 <h4>Total Points</h4>
                 <p id="points"></p>
@@ -90,8 +90,6 @@
 <script>
 
 
-
-
 //     //creating dropdown lists
 //     //League filter
    
@@ -101,42 +99,38 @@
             selector
                 .append('option')
                 .text(sample)
-                .property('value', sample);            
-            let sampleleague = sample;         
+                .property('value', sample);      
         });
     });
 
 
 
     let selector1 = d3.select("#selDataset1")
-    function selectorClub(countryName) {
-        selector1.selectAll('option').empty();
-        d3.json('/alldata').then(data => {
-            let clubList = data.filter(sample => sample.country === countryName);
-            clubName = clubList.map(d => d.club);
-            clubName.forEach(sample => {
+    function selectorClub(leaguedata) {        
+        d3.json('/alldata').then(data => {            
+            clubleague = data.filter(data => data.country === leaguedata);
+            clubList = clubleague.map(club => club.club);
+            selector1.html("")
+            clubList.forEach(sample => {
                 selector1
-                    .append('option')
+                    .append('option')                    
                     .text(sample)
                     .property('value', sample);
             });
-        });
+        })
     };
-
      
+    
 
     function optionChanged() {
-        let leaguedata = document.getElementById("selDataset").value;
+        let leaguedata = document.getElementById("selDataset").value;       
         if (leaguedata !== 'All') {
             d3.json('/alldata').then(data => {
                 let filtered = data.filter(sample => sample.country === leaguedata);
+                let filteredclub = filtered.map(x => x.club);
+                selectorClub(leaguedata);                
                 bubbleChart(filtered);                
-            })
-            d3.json('/allleagues').then(data => {
-                countryName = data.filter(sample => sample === leaguedata)[0];
-                selectorClub(countryName);
-                sideMenu(countryName)
-            })
+            })                       
         }
         if (leaguedata == 'All') {
             d3.json('/alldata').then(data => {
@@ -149,9 +143,17 @@
 
 
     // Creating the side menu
-    function sideMenu(countryName) {
+    function teamoptionChanged(selectedClub) {
         d3.json('./alldata').then(data => {
-            
+            let club = data.filter(club => club.club === selectedClub)
+            console.log(club[0])
+            document.getElementById('value').textContent = club[0].market_value
+            document.getElementById('points').textContent = club[0].pts
+            document.getElementById('ptspergame').textContent = club[0].pts_per_match
+            document.getElementById('matches').textContent = club[0].pl
+            document.getElementById('won').textContent = club[0].w
+            document.getElementById('drawn').textContent = club[0].d
+            document.getElementById('lost').textContent = club[0].l
         })
 
     }
@@ -222,162 +224,6 @@
         Plotly.newPlot('bubble', data, layout, config);
     };
 
-
-
-//     //creating a leaflet map
-//     var defaultMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//         maxZoom: 19,
-//         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//     });
-
-//     let basemaps = {
-//         'Default': defaultMap
-//     };
-
-//     var myMap = L.map("map", {
-//         center: [40.41921, 3.69252],
-//         zoom: 1.1,
-//         layers: [defaultMap]
-//     });
-
-//     defaultMap.addTo(myMap);
-//     let layoffs = new L.LayerGroup();
-
-
-//     //adding the data layer to the map
-//     function createMap(filteredGeo) {
-
-//         layoffs.clearLayers();
-
-//         function dataColor(Laid_Off_Count) {
-//             if (Laid_Off_Count > 800)
-//                 return "red";
-//             else if (Laid_Off_Count > 300)
-//                 return "#fc4903";
-//             else if (Laid_Off_Count > 150)
-//                 return "#fc8403";
-//             else if (Laid_Off_Count > 80)
-//                 return "#fcad03";
-//             else if (Laid_Off_Count > 30)
-//                 return "#cafc03";
-//             else
-//                 return "green";
-//         }
-
-//         function dataStyle(features) {
-//             return {
-//                 opacity: 0.5,
-//                 fillOpacity: 0.5,
-//                 fillColor: dataColor(features.properties.Laid_Off_Count), // use index 2 for the depth
-//                 color: "000000", // black outline
-//                 radius: 10, // grabs the magnitude
-//                 weight: 0.5,
-//                 stroke: true
-//             }
-//         }
-
-//         L.geoJson(filteredGeo, {
-//             pointToLayer: function (features, latLng) {
-//                 return L.circleMarker(latLng);
-//             },
-//             style: dataStyle,
-//             onEachFeature: function (features, layer) {
-//                 layer.bindPopup(`Company: <b>${features.properties.Company}</b><br>
-//                                   City: <b>${features.properties.City}</b><br>
-//                                   Laid off Count: <b>${features.properties.Laid_Off_Count}</b>`);
-//             }
-//         }).addTo(layoffs);
-//         layoffs.addTo(myMap);
-//     };
-
-    //creating the line chart
-    // function createLn(geoFiltered) {
-    //     var labeldata = [];
-    //     var chrtdata = [];
-    //     for (var i = 0; i < geoFiltered.length; i++) {
-    //         //group by Date and set the laid off count
-    //         let date = geoFiltered[i].properties.Date;
-    //         let count = geoFiltered[i].properties.Laid_Off_Count;
-    //         if (labeldata.includes(date)) {
-    //             let index = labeldata.indexOf(date);
-    //             chrtdata[index] += count;
-    //         } else {
-    //             labeldata.push(date);
-    //             chrtdata.push(count);
-    //         }
-    //     }
-
-    //     labeldata = labeldata.reverse();
-    //     var ctx = document.getElementById("myChart").getContext("2d");
-    //     var myChart = new Chart(ctx, {
-    //         type: 'line',
-    //         data: {
-    //             labels: labeldata,
-    //             datasets: [{
-    //                 label: 'Layoffs',
-    //                 data: chrtdata,
-    //                 backgroundColor: "rgba(170,211,223,0.6)",
-    //                 borderColor: "rgba(170,211,223,0.7)",
-    //                 pointBorderColor: "rgba(170,211,223)",
-    //                 pointBackgroundColor: "rgba(170,211,223)",
-    //                 fillColor: "rgba(170,211,223,0.6)",
-    //                 fill: true,
-
-    //             }]
-    //         }
-    //     });
-    // };
-
-//     //using groupby to find the sum of layoffs for each filter
-//     function groupBy(arr) {
-//         var helper = {};
-//         var result = arr.reduce(function (r, o) {
-//             var key = o.properties.Date;
-
-//             if (!helper[key]) {
-//                 helper[key] = Object.assign({}, o);
-//                 r.push(helper[key]);
-//             } else {
-//                 helper[key].properties.Laid_Off_Count += o.properties.Laid_Off_Count;
-//             }
-//             return r;
-//         }, []);
-//     };
-
-//     //creating the bar chart
-//     d3.json('/dataset/barchart').then((data) => {
-//         var barlabeldata = [];
-//         var bardata = [];
-//         for (var i = 0; i < data.length; i++) {
-//             barlabeldata.push(data[i].Industry);
-//             bardata.push(data[i].Count)
-//         }
-
-//         var chr = document.getElementById("canvas").getContext("2d");
-
-//         var barchart = new Chart(chr, {
-//             type: 'bar',
-//             data: {
-//                 labels: barlabeldata,
-//                 datasets: [
-//                     {
-//                         label: 'Layoffs by Industry',
-//                         fillColor: "rgba(170,211,223,0.7)",
-//                         strokeColor: "rgba(170,211,223)",
-//                         backgroundColor: "rgba(170,211,223,0.6)",
-//                         data: bardata,
-//                     }
-//                 ]
-//             }
-//         });
-//     });
-
-//     //plotting the whole dataset when we load the page
-//     function init() {
-//         optionDataFilter('All');
-//     };
-
-//     init();
 </script>
 </body>
 </html>
