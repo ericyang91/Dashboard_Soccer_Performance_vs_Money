@@ -38,7 +38,7 @@
                 </select>
                 <h4>Club</h4>
                 <select class="dd-country" id="selDataset1" onchange="teamoptionChanged(this.value)">
-                    <option selected>All</option>
+                    <option selected>Select a League</option>
                 </select>
             </div>
         </div>
@@ -70,9 +70,11 @@
         </div>
         <div class="map-bar-box">
             <div class="map-box">
-                <div id="map" style="width: 100%; height: 300px"></div>
+                <div id="barbar"></div>
+                <canvas id="map" style="width: 100%; height: 300px"></canvas>                
             </div>
             <div class="bar-box">
+                <div id="tabletable"></div>
                 <canvas id="canvas" style="width: 100%; height: 300px"></canvas>
             </div>
         </div>
@@ -126,8 +128,7 @@
         let leaguedata = document.getElementById("selDataset").value;       
         if (leaguedata !== 'All') {
             d3.json('/alldata').then(data => {
-                let filtered = data.filter(sample => sample.country === leaguedata);
-                let filteredclub = filtered.map(x => x.club);
+                let filtered = data.filter(sample => sample.country === leaguedata);                
                 selectorClub(leaguedata);                
                 bubbleChart(filtered);                
             })                       
@@ -145,7 +146,7 @@
     // Creating the side menu
     function teamoptionChanged(selectedClub) {
         d3.json('./alldata').then(data => {
-            let club = data.filter(club => club.club === selectedClub)
+            let club = data.filter(club => club.club === selectedClub) // data.filter creates a new array
             console.log(club[0])
             document.getElementById('value').textContent = club[0].market_value
             document.getElementById('points').textContent = club[0].pts
@@ -154,6 +155,7 @@
             document.getElementById('won').textContent = club[0].w
             document.getElementById('drawn').textContent = club[0].d
             document.getElementById('lost').textContent = club[0].l
+            
         })
 
     }
@@ -171,16 +173,29 @@
             mode: 'markers',
             marker: {
                 size: size,
+                color: 'blue'
             },
             text: text
         }];
         let layout = {
             title: 'Bubble Chart: Value and Performance',
+            font: {
+                family: 'Arial',
+                size:24
+            },
             xaxis: {
-                title: 'Average Points Won per Match'
+                title: 'Average Points Won per Match',
+                font: {
+                    family: 'Arial',
+                    size: 18
+                }
             },
             yaxis: {
-                title: 'Win:Loss Ratio'
+                title: 'Win:Loss Ratio',
+                font: {
+                    family: 'Arial',
+                    size: 18
+                }
             }
         };
         let config = {
@@ -210,11 +225,23 @@
         }];
         let layout = {
             title: 'Bubble Chart: Value and Performance',
+            font: {
+                family: 'Arial',
+                size: 24
+            },
             xaxis: {
-                title: 'Average Points Won per Match'
+                title: 'Average Points Won per Match',
+                font: {
+                    family: 'Arial',
+                    size: 18
+                }
             },
             yaxis: {
-                title: 'Win:Loss Ratio'
+                title: 'Win:Loss Ratio',
+                font: {
+                    family: 'Arial',
+                    size: 18
+                }
             },
             showlegend: true
         };
