@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title>Dashboard</title>    
     <link
             rel="stylesheet"
             href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -143,25 +143,29 @@
 
  
 // Creating the league tables
-    function tableFunction(filtered) {        
+    function tableFunction(filtered) {      // filtered is a javascript object of the teams in the selected league  
         let tablebuilder = document.getElementById('tabletable');
         let tablestructure = document.createElement('table');
         let tablebody = document.createElement('tbody');
-        let rowLength = Object.keys(filtered).length;
+        let rowLength = Object.keys(filtered).length; // Returns the number of teams in a league
         let first_row = filtered[0]
-        let keys2 = Object.keys(first_row)
-        let columnLength = keys2.length
-        console.log(filtered[0])
+        let keys = Object.keys(first_row) // Returns an array of keys
+        let columnLength = keys.length
         for (let i=0; i<rowLength; i++) {
             let row = document.createElement('tr');
+            let rowvalue = filtered[i]
             for (let j=0; j<columnLength; j++) {
-                let column = document.createElement('td');
-                
-
+                let cell = document.createElement('td');
+                let key = keys[j];
+                let value = document.createTextNode(rowvalue[key]);
+                console.log(value)
+                cell.appendChild(value);
+                row.appendChild(cell);
             }
-
-        }
-      
+            tablebody.appendChild(row);
+            }    
+            tablestructure.appendChild(tablebody);
+            tablebuilder.appendChild(tablestructure)
         }
     
 
@@ -176,7 +180,6 @@
             document.getElementById('won').textContent = club[0].w
             document.getElementById('drawn').textContent = club[0].d
             document.getElementById('lost').textContent = club[0].l
-            let selectedleague = data.filter(league => league.includes(selectedClub))
         })
      
     }
