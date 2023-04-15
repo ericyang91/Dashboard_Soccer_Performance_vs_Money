@@ -144,31 +144,44 @@
  
 // Creating the league tables
     function tableFunction(filtered) {      // filtered is a javascript object of the teams in the selected league  
+        let tableReset = d3.select('#tabletable');
+        tableReset.html('');
         let tablebuilder = document.getElementById('tabletable');
         let tablestructure = document.createElement('table');
+        let tablehead = document.createElement('thead');
         let tablebody = document.createElement('tbody');
+
+        let headerRow = document.createElement('tr');
+        let headers = ['Club', 'Value', 'Played', 'Win', 'Draw', 'Lose', 'Points']
+        let headerLength = headers.length
+        let headerContent = ['club', 'market_value', 'pl', 'w', 'd', 'l', 'pts']
+        for (let k=0; k<headerLength; k++) {
+            let headerHeader = document.createElement('th');
+            let headerValue = document.createTextNode(headers[k]);
+            headerHeader.appendChild(headerValue);
+            headerRow.appendChild(headerHeader);
+        }
+        tablehead.appendChild(headerRow);
+        tablestructure.appendChild(tablehead);
+
         let rowLength = Object.keys(filtered).length; // Returns the number of teams in a league
-        let first_row = filtered[0]
-        let keys = Object.keys(first_row) // Returns an array of keys
-        let columnLength = keys.length
         for (let i=0; i<rowLength; i++) {
             let row = document.createElement('tr');
-            let rowvalue = filtered[i]
-            for (let j=0; j<columnLength; j++) {
+            let rowvalue = filtered[i];
+            for (let j=0; j<headerLength; j++){
+                let headKey = headerContent[j];
                 let cell = document.createElement('td');
-                let key = keys[j];
-                let value = document.createTextNode(rowvalue[key]);
-                console.log(value)
+                let value = document.createTextNode(rowvalue[headKey]);
                 cell.appendChild(value);
                 row.appendChild(cell);
             }
             tablebody.appendChild(row);
-            }    
-            tablestructure.appendChild(tablebody);
-            tablebuilder.appendChild(tablestructure)
         }
+        tablestructure.appendChild(tablebody);
+        tablebuilder.appendChild(tablestructure);
+    };
     
-
+    
 // Creating the side menu
     function teamoptionChanged(selectedClub) {
         d3.json('./alldata').then(data => {
