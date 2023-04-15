@@ -1,11 +1,9 @@
 # Import Dependencies
 import sqlalchemy
-from sqlalchemy import Column, Integer, String, Float, Boolean
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func, MetaData
+from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, render_template
-import psycopg2
 import pandas as pd
 # from credentials import username, password
 from credentials.credentials import username, password

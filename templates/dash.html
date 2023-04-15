@@ -103,8 +103,7 @@
         </div>
         <div class="map-bar-box">
             <div class="map-box">
-                <div id="barbar"></div>
-                <h2>hello</h2>
+                <div id="barbar", style="text-align:center; margin-top:200px;"></div>
                 <canvas id="map" style="width: 100%; height: 300px"></canvas>                
             </div>
             <div class="bar-box">
@@ -320,6 +319,29 @@
         };        
         Plotly.newPlot('bubble', data, layout, config);
     };
+
+
+// Creating a bar chart using plotly
+// 2. Define the data
+var data = [{
+  x: ['A', 'B', 'C', 'D', 'E'],
+  y: [10, 20, 30, 40, 50],
+  type: 'bar'
+}];
+
+// 3. Define the layout
+var layout = {
+  title: 'Bar Chart',
+  xaxis: {
+    title: 'X Axis Labels'
+  },
+  yaxis: {
+    title: 'Y Axis Values'
+  }
+};
+
+// 4. Create the chart
+Plotly.newPlot('barbar', data, layout);
 
 </script>
 </body>
