@@ -21,6 +21,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
 </head>
+<style>
+    .bar-box {
+        border-collapse: collapse !important;
+        font-size: 1.4em !important;
+        min-width: 400px !important;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .bar-box thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+    }
+    .bar-box th,
+    .bar-box td{
+        padding: 12px 15px;
+    }
+    .bar-box tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+    .bar-box tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    .bar-box tbody tr:last-of-type {
+        border-bottom: 2px solid #009879 !important;
+    }
+    .bar-box tbody tr.active-row {
+        font-weight: bold;
+        color: #009879
+    }
+</style>
 <body>
 <header>
     <div class="inner">
@@ -34,7 +67,7 @@
             <div class="filters">
                 <h4>League</h4>
                 <select class="dd-country" id="selDataset" onchange="optionChanged()">
-                    <option selected>All</option>
+                    <option selected>Select a League</option>
                 </select>
                 <h4>Club</h4>
                 <select class="dd-country" id="selDataset1" onchange="teamoptionChanged(this.value)">
@@ -139,7 +172,7 @@
                 bubbleAll(allcountries);
             });
         };
-    };
+      };
 
  
 // Creating the league tables
@@ -150,9 +183,8 @@
         let tablestructure = document.createElement('table');
         let tablehead = document.createElement('thead');
         let tablebody = document.createElement('tbody');
-
         let headerRow = document.createElement('tr');
-        let headers = ['Club', 'Value', 'Played', 'Win', 'Draw', 'Lose', 'Points']
+        let headers = ['Club', 'Value in €', 'Played', 'Win', 'Draw', 'Lose', 'Points']
         let headerLength = headers.length
         let headerContent = ['club', 'market_value', 'pl', 'w', 'd', 'l', 'pts']
         for (let k=0; k<headerLength; k++) {
@@ -193,6 +225,7 @@
             document.getElementById('won').textContent = club[0].w
             document.getElementById('drawn').textContent = club[0].d
             document.getElementById('lost').textContent = club[0].l
+            console.log(club[0])
         })
      
     }
