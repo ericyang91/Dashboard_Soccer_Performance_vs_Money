@@ -2,10 +2,34 @@
 
 ## Purpose
 
+The European soccer market has been increasing in size in the recent years. The level of increase is unprecedented, with multi-billionaires from countries like Qatar and Saudi Arabia taking ownership of the major clubs. The result is a hyper-inflation of player values.
+This project uses bubble chart, bar chart, and a table to visualize the major European soccer league and their teams' monetary value and performance to see if there are any visible relationships between money and performance.
+Leagues of interest include:
+- Premier League (England)
+- La Liga (Spain)
+- Serie A (Italy)
+- Bundesliga (Germany)
+- Ligue 1 (France)
+- Eredivisie (Netherlands)
+- Liga Portugal (Portugal)
+- Premier Liga (Russia)
+- Super Lig (Turkiye)
+- Jupiler League (Belgium)
+- Bundesliga (Austria)
+
+Note that the project is limited to visualization only. The relationship between the two factors must be further studied using correlation, regression, and/or machine learning.
+
+## Data Preparation
+
+[Data set](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/data_scrape.ipynb) was prepared by scraping the most recent data from [Transfermarkt](https://www.transfermarkt.us/) using `BeautifulSoup`. The scraped data was cleaned and organized with `Pandas` and `Python`, which was then sent to `PostgreSQL` to be stored in a database. `SQLAlchemy` was used to retrieve the data from `PostgreSQL` and `Flask` was created for setting up the dashboard. The code is stored in [app.py](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/app.py).
+
+## Javascript Coding
+
+`D3.js` and `Plotly` were used to create the bar chart, bubble chart, and league table. Both the `HTML` and the `Javascript code` are stored in [dash.html](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/templates/dash.html). `CSS` code is stored in [main.css](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/static/main.css).
+
 ## Dashboard
 
-[Transfermarkt](https://www.transfermarkt.us/)
-
+`D3.js` and `Plotly` were used to create the bar chart, bubble chart, and league table.
 
 ## Libraries and Modules
 [![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat)](https://www.python.org/)
