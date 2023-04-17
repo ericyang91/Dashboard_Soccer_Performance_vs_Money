@@ -33,6 +33,29 @@ The dashboard composed of 5 different sections: Dropdown menu, Team Summary, Bub
 
 ![dashboard](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/dash.jpg)
 
+There are two dropdown menus that allow users to select a league of interest and a club in the selected league.
+
+![menu](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/dashboard.jpg)
+
+The Team Summary side menu gives a summary of the club of selection. This summary includes the club's market value, total points in the league, average points per game, number of matches played, games won, games drawn, and games lost.
+
+![summary](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/teamsummary.jpg)
+
+The bubble chart gives users information of all the clubs in a league their market value, average points won per game, and the win-loss ratio. The size of the bubble depicts the market value.
+
+![bubble](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/bubble.jpg)
+
+There are two bar charts. The upper chart compares the market value between the selected club and the league average. The chart below compares the points won.
+
+![bar](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/bar.jpg)
+
+The league table shows a detailed value and performance information for all clubs in a league.
+
+![table](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/table.jpg)
+
+## Further Research
+
+As noted above, this project is limited only to data visualization. Further research is required to analyze the relationship between money and performance. It would also be interesting to make comparison between the different leagues by using UEFA's club coefficients and the Champions League performance.
 
 ## Libraries and Modules
 [![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat)](https://www.python.org/)
