@@ -29,7 +29,10 @@ Note that the project is limited to visualization only. The relationship between
 
 ## Dashboard
 
-`D3.js` and `Plotly` were used to create the bar chart, bubble chart, and league table.
+The dashboard composed of 5 different sections: Dropdown menu, Team Summary, Bubble Chart, 2 Bar Charts, and a League Table. Below is an overview of the dashboard.
+
+![dashboard](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/dash.jpg)
+
 
 ## Libraries and Modules
 [![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat)](https://www.python.org/)
