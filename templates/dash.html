@@ -99,11 +99,13 @@
         <div class="chart-box">
             <div id="bubble"></div>
             <canvas id="myChart" style="width: 100%; max-height: 100px"></canvas>
-          
+            <!-- margin-top:200px; -->
         </div>
         <div class="map-bar-box">
             <div class="map-box">
-                <div id="barbar", style="text-align:center; margin-top:200px;"></div>
+                <div id="barbar", style="text-align:center;"></div>
+                <div id="barbar2", style="text-align:center;"></div>
+                <!-- <div id="barbar3", style="text-align:center;"></div> -->
                 <canvas id="map" style="width: 100%; height: 300px"></canvas>                
             </div>
             <div class="bar-box">
@@ -224,10 +226,97 @@
             document.getElementById('won').textContent = club[0].w
             document.getElementById('drawn').textContent = club[0].d
             document.getElementById('lost').textContent = club[0].l
-            console.log(club[0])
-        })
-     
-    }
+            let clubObject = club[0]
+            barChart(clubObject);
+        });     
+    };
+
+
+// Creating a bar chart for selected club
+    function barChart(clubObject) {
+        console.log(clubObject.club)
+        d3.json('./alldata').then(data => {
+            let teamData = data.filter(sample => sample.country === clubObject.country)
+            let teamArray = teamData[0]
+            let league_value = teamData.map(team => Number(team.market_value))
+            let league_points = teamData.map(team => Number(team.pts))
+            let league_won = teamData.map(team => Number(team.w))
+            let valuesum = 0;
+            let pointssum = 0;
+            let wonsum = 0;
+            for (let i=0; i<league_value.length; i++) {
+                valuesum += league_value[i];
+                pointssum += league_points[i];
+                wonsum += league_won[i];                
+            }
+            let avgvalue = valuesum/league_value.length;
+            let avgpoints = pointssum/league_value.length;
+            let avgwon = wonsum/league_value.length;
+
+            // Bar 1
+            let bardata = [{
+                y: [`${clubObject.club}   `, 'League Avg   '],
+                x: [clubObject.market_value, avgvalue],
+                type: 'bar',
+                orientation: 'h',
+                marker: {
+                    color: ['#009879', 'blue']
+                }
+            }];
+            let barlayout = {
+                title: 'Club vs. League Market Value',
+                yaxis: {
+                    automargin: true,
+                },
+                xaxis: {
+                    title: 'Market Value'
+                }
+            };
+            Plotly.newPlot('barbar', bardata, barlayout);
+
+            // Bar 2
+            let bardata2 = [{
+                y: [`${clubObject.club}   `, 'League Avg   '],
+                x: [clubObject.pts, avgpoints],
+                type: 'bar',
+                orientation: 'h',
+                marker: {
+                    color: ['#009879', 'blue']
+                }
+            }];
+            let barlayout2 = {
+                title: 'Club vs. League Points',
+                yaxis: {
+                    automargin: true,
+                },
+                xaxis: {
+                    title: 'Points'
+                }
+            };
+            Plotly.newPlot('barbar2', bardata2, barlayout2);
+
+            // // Bar 3
+            // let bardata3 = [{
+            //     y: [`${clubObject.club}   `, 'League Avg   '],
+            //     x: [clubObject.w, avgwon],
+            //     type: 'bar',
+            //     orientation: 'h',
+            //     marker: {
+            //         color: ['#009879', 'blue']
+            //     }
+            // }];
+            // let barlayout3 = {
+            //     title: 'Club vs. League Wins',
+            //     yaxis: {
+            //         automargin: true,
+            //     },
+            //     xaxis: {
+            //         title: 'Number of Wins'
+            //     }
+            // };
+            // Plotly.newPlot('barbar3', bardata3, barlayout3);
+    });
+    };
 
 
 // Creating a bubble chart for selected leagues
@@ -323,25 +412,25 @@
 
 // Creating a bar chart using plotly
 // 2. Define the data
-var data = [{
-  x: ['A', 'B', 'C', 'D', 'E'],
-  y: [10, 20, 30, 40, 50],
-  type: 'bar'
-}];
+// var data = [{
+//   x: ['A', 'B', 'C', 'D', 'E'],
+//   y: [10, 20, 30, 40, 50],
+//   type: 'bar'
+// }];
 
-// 3. Define the layout
-var layout = {
-  title: 'Bar Chart',
-  xaxis: {
-    title: 'X Axis Labels'
-  },
-  yaxis: {
-    title: 'Y Axis Values'
-  }
-};
+// // 3. Define the layout
+// var layout = {
+//   title: 'Bar Chart',
+//   xaxis: {
+//     title: 'X Axis Labels'
+//   },
+//   yaxis: {
+//     title: 'Y Axis Values'
+//   }
+// };
 
-// 4. Create the chart
-Plotly.newPlot('barbar', data, layout);
+// // 4. Create the chart
+// Plotly.newPlot('barbar', data, layout);
 
 </script>
 </body>
