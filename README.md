@@ -77,3 +77,5 @@ As noted above, this project is limited only to data visualization. Further rese
 [![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=flat)](https://www.javascript.com/)
 [![Plotly](https://img.shields.io/badge/-Plotly-3F4F75?logo=plotly&logoColor=white&style=flat)](https://plotly.com/)
 [![D3](https://img.shields.io/badge/-D3-F9A03C?logo=d3.js&logoColor=white&style=flat)](https://d3js.org/)
+[![Beautiful Soup](https://img.shields.io/badge/BeautifulSoup-%E2%9C%A8-green)](https://pypi.org/project/beautifulsoup4/)
+
