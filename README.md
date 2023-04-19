@@ -65,7 +65,7 @@ The league table shows a detailed value and performance information for all club
 
 ## Further Research
 
-As noted above, this project is limited only to data visualization. Further research is required to analyze the relationship between money and performance. It would also be interesting to make comparison between the different leagues by using UEFA's club coefficients and the Champions League performance.
+As noted above, this project is limited only to data visualization. Further research is required to analyze the relationship between money and performance. It would also be interesting to make comparison between the different leagues by using UEFA's club coefficients and the Champions League performance. Another nice addition to it would be to use tools such as the `Task Scheduler` to automate the process of updating the data set as the data on [Transfermarkt](https://www.transfermarkt.us/) gets updated.
 
 ## Libraries and Modules
 [![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat)](https://www.python.org/)
