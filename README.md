@@ -1,5 +1,5 @@
 # Soccer: Is the Money Worth the Goals?
-
+![soccer](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/soccer1.jpg)
 ## Purpose
 
 The European soccer market has been increasing in size in the recent years. The level of increase is unprecedented, with multi-billionaires from countries like Qatar and Saudi Arabia taking ownership of the major clubs. The result is a hyper-inflation of player values.
