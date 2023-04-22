@@ -48,7 +48,7 @@ The Team Summary side menu gives a summary of the club of selection. This summar
 The bubble chart gives users information of all the clubs in a league their market value, average points won per game, and the win-loss ratio. The size of the bubble depicts the market value.
 
 <p align="center">
-  <img src="https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/bubble.jpg" alt="bubblechart"/>
+  <img src="https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/bubblechart.jpg" alt="bubblechart"/>
 </p>
 
 There are two bar charts. The upper chart compares the market value between the selected club and the league average. The chart below compares the points won.
