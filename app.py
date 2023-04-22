@@ -33,14 +33,6 @@ def allLeagues():
     results = [(sqlalchemyobject[0]) for sqlalchemyobject in query_league.all()]
     return jsonify(results)
 
-@app.route('/allclubs')
-def allClubs():
-    session = Session(engine)
-    query_club = session.query(data.club).distinct()
-    session.close()
-    results = [(sqlalchemyobject[0]) for sqlalchemyobject in query_club.all()]
-    return jsonify(results)
-
 @app.route("/alldata")
 def allData():
     session = Session(engine)
