@@ -31,7 +31,7 @@ Note that the project is limited to visualization only. The relationship between
 
 The dashboard composed of 5 different sections: Dropdown menu, Team Summary, Bubble Chart, 2 Bar Charts, and a League Table. Below is an overview of the dashboard.
 
-![dashboard](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/dash.jpg)
+![dashboard](https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/dashfull.jpg)
 
 There are two dropdown menus that allow users to select a league of interest and a club in the selected league.
 
@@ -48,7 +48,7 @@ The Team Summary side menu gives a summary of the club of selection. This summar
 The bubble chart gives users information of all the clubs in a league their market value, average points won per game, and the win-loss ratio. The size of the bubble depicts the market value.
 
 <p align="center">
-  <img src="https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/bubble.jpg" alt="bubble"/>
+  <img src="https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/bubble.jpg" alt="bubblechart"/>
 </p>
 
 There are two bar charts. The upper chart compares the market value between the selected club and the league average. The chart below compares the points won.
@@ -57,7 +57,7 @@ There are two bar charts. The upper chart compares the market value between the 
   <img src="https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/bar.jpg" alt="bar"/>
 </p>
 
-The league table shows a detailed value and performance information for all clubs in a league.
+The league table shows a detailed value and performance information for all clubs in a league. Users can sort the different columns by clicking on the column headers.
 
 <p align="center">
   <img src="https://github.com/ericyang91/Soccer_Is_the_Money_Worth_the_Goals/blob/main/captures/table.jpg" alt="table"/>
